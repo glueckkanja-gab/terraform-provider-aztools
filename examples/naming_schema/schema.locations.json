@@ -1,0 +1,18 @@
+{
+  "westeurope": "euwe",
+  "norteurope": "euno",
+  "eastus": "use",
+  "eastus2": "use2",
+  "westus": "uswe",
+  "westus2": "uswe2",
+  "francecentral": "frce",
+  "francesouth": "frso",
+  "germanynorth": "geno",
+  "germanywestcentral": "gewc",
+  "norwayeast": "noea",
+  "norwaywest": "nowe",
+  "switzerlandnorth": "chno",
+  "switzerlandwest": "chwe",
+  "uksouth": "ukso",
+  "ukwest": "ukwe"
+}

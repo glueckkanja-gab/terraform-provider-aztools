@@ -1,19 +1,19 @@
 ---
-layout: "azfoundation"
-page_title: "AzFoundation: azfoundation_resource_name"
-sidebar_current: "docs-azfoundation-resource"
+layout: "aztools"
+page_title: "AzTools: aztools_resource_name"
+sidebar_current: "docs-aztools-resource"
 description: |-
-  Azure Foundation naming resource.
+  Naming generator resource.
 ---
 
-# azfoundation_resource_name
+# aztools_resource_name
 
 Azure Foundation naming resource.
 
 ## Example Usage
 
 ```hcl
-resource "azfoundation_resource_name" "example" {
+resource "aztools_resource_name" "example" {
   resource_type = "azurerm_resource_group"
   name = "foo"
   environment = "sandbox"

@@ -1,4 +1,4 @@
-Terraform Provider AzFoundation
+Terraform Provider AzTools
 ==================
 
 Provider to support implementing [Recommended naming and tagging conventions](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) for Azure resources.
@@ -13,7 +13,7 @@ Requirements
 Using the provider
 ----------------------
 
-See [Terraform Registry](https://registry.terraform.io/providers/petr-stupka/azfoundation/latest).
+See [Terraform Registry](https://registry.terraform.io/providers/glueckkanja-gab/aztools/latest).
 
 Building The Provider
 ---------------------

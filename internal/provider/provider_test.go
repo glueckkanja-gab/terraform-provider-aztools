@@ -11,12 +11,12 @@ import (
 // to create a provider server to which the CLI can reattach.
 var providerFactories = map[string]func() (*schema.Provider, error){
 	"scaffolding": func() (*schema.Provider, error) {
-		return AzFoundation("dev")(), nil
+		return AzTools("dev")(), nil
 	},
 }
 
 func TestProvider(t *testing.T) {
-	if err := AzFoundation("dev")().InternalValidate(); err != nil {
+	if err := AzTools("dev")().InternalValidate(); err != nil {
 		t.Fatalf("err: %s", err)
 	}
 }

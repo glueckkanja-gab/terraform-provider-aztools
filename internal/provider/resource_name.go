@@ -9,9 +9,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
-	"github.com/petr-stupka/terraform-provider-azfoundation/internal/provider/common"
-	"github.com/petr-stupka/terraform-provider-azfoundation/internal/provider/models"
-	"github.com/petr-stupka/terraform-provider-azfoundation/internal/provider/validate"
+	"github.com/glueckkanja-gab/terraform-provider-aztools/internal/provider/common"
+	"github.com/glueckkanja-gab/terraform-provider-aztools/internal/provider/models"
+	"github.com/glueckkanja-gab/terraform-provider-aztools/internal/provider/validate"
 )
 
 func resourceName() *schema.Resource {

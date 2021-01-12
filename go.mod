@@ -1,4 +1,4 @@
-module github.com/petr-stupka/terraform-provider-azfoundation
+module github.com/glueckkanja-gab/terraform-provider-aztools
 
 go 1.12
 

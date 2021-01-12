@@ -3,8 +3,8 @@ terraform {
     //azurerm = {
     //  source = "hashicorp/azurerm"
     //}
-    azfoundation = {
-      source = "github.com/petr-stupka/azfoundation"
+    aztools = {
+      source = "github.com/glueckkanja-gab/aztools"
     }
   }
 }
@@ -17,7 +17,7 @@ locals {
 // features {}
 //
 
-provider "azfoundation" {
+provider "aztools" {
   environment           = "prd"
   separator             = local.sep
   convention            = "default"

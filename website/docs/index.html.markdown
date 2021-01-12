@@ -1,12 +1,12 @@
 ---
-layout: "azfoundation"
-page_title: "Provider: AzFoundation"
-sidebar_current: "docs-azfoundation-index"
+layout: "aztools"
+page_title: "Provider: AzTools"
+sidebar_current: "docs-aztools-index"
 description: |-
-  Terraform provider azfoundation.
+  Terraform provider aztools.
 ---
 
-# AzFoundation Provider
+# AzTools Provider
 
 Provider to support implementing [Recommended naming and tagging conventions](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) for Azure resources.
 
@@ -19,7 +19,7 @@ Use the navigation to the left to read about the available resources.
 ## Example Usage
 
 ```hcl
-provider "azfoundation" {
+provider "aztools" {
   environment = "sandbox"
   separator = "-"
   lowercase = false
@@ -39,7 +39,7 @@ The following arguments are supported:
 * `schema_locations_path` - (Optional) Relative file path from root module to json schema file. Defaults to `./schema.locations.json`
 
 
-~> **Note:** `separator` and `environment` can be overrriden using atributes in azfoundation_resource_name resource
+~> **Note:** `separator` and `environment` can be overrriden using atributes in aztools_resource_name resource
 
 ## Example schema.naming.json
 

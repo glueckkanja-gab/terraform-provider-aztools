@@ -27,13 +27,13 @@ func main() {
 	if debugMode {
 		err := plugin.Debug(context.Background(), "github.com/glueckkanja-gab/terraform-provider-aztools/internal/provider", // FIXME: Fix repo reference
 			&plugin.ServeOpts{
-				ProviderFunc: provider.AzFoundation(version),
+				ProviderFunc: provider.AzTools(version),
 			})
 		if err != nil {
 			log.Println(err.Error())
 		}
 	} else {
 		plugin.Serve(&plugin.ServeOpts{
-			ProviderFunc: provider.AzFoundation(version)})
+			ProviderFunc: provider.AzTools(version)})
 	}
 }

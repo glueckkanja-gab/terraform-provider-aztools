@@ -5,7 +5,7 @@ import (
 	"flag"
 	"log"
 
-	"github.com/glueckkanja-gab/terraform-provider-aztools/internal/provider" // FIXME: Fix repo reference
+	"github.com/glueckkanja-gab/terraform-provider-aztools/internal/provider"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
 )
 
@@ -25,7 +25,7 @@ func main() {
 	flag.Parse()
 
 	if debugMode {
-		err := plugin.Debug(context.Background(), "github.com/glueckkanja-gab/terraform-provider-aztools/internal/provider", // FIXME: Fix repo reference
+		err := plugin.Debug(context.Background(), "github.com/glueckkanja-gab/terraform-provider-aztools/internal/provider",
 			&plugin.ServeOpts{
 				ProviderFunc: provider.AzTools(version),
 			})

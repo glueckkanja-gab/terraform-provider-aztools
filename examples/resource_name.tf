@@ -1,38 +1,38 @@
-resource "aztools_resource_name" "example" {
+resource "aztools_resource_name" "example_default_precendence" {
   resource_type    = "azurerm_resource_group"
-  name             = "XXXXX"
-  prefixes         = ["prefixes"]
-  suffixes         = ["suffixes", "001"]
-  name_precendence = ["prefix", "prefixes", "name", "location", "environment", "suffixes"]
+  name             = "example"
+  prefixes         = ["myprefix"]
+  suffixes         = ["mysuffix", "001"]
+  name_precendence = ["prefix", "prefixes", "name", "environment", "suffixes"]
 }
 
-output "example" {
-  value = aztools_resource_name.example.result
+output "example_default_precendence" {
+  value = aztools_resource_name.example_default_precendence.result
 }
 
 //----------------
 
-resource "aztools_resource_name" "provider_example" {
+resource "aztools_resource_name" "example_custom_precendence" {
   name             = "example"
   resource_type    = "azurerm_resource_group"
   location         = "westeurope"
   prefixes         = ["prefixes"]
-  suffixes         = ["suffixes", "rg001"]
+  suffixes         = ["suffixes", "002"]
   name_precendence = ["prefixes", "name", "location", "environment", "suffixes", "prefix"]
 }
 
-output "provider_example" {
-  value = aztools_resource_name.provider_example.result
+output "example_custom_precendence" {
+  value = aztools_resource_name.example_custom_precendence.result
 }
 
 //----------------
 
-resource "aztools_resource_name" "provider_example1" {
+resource "aztools_resource_name" "passthrough" {
   name          = "example1"
   resource_type = "azurerm_resource_group"
   convention    = "passthrough"
 }
 
-output "provider_example1" {
-  value = aztools_resource_name.provider_example1.result
+output "example_passthrough" {
+  value = aztools_resource_name.passthrough.result
 }

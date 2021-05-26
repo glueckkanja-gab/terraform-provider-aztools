@@ -2274,7 +2274,7 @@
     "maxLength": 90,
     "validationRegex": "^[a-zA-Z0-9-._()]{0,89}[a-zA-Z0-9-_()]$",
     "configuration": {
-      "useEnvironment": true,
+      "useEnvironment": false,
       "useLowerCase": false,
       "useSeparator": true,
       "denyDoubleHyphens": false,

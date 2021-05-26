@@ -10,7 +10,8 @@ terraform {
 }
 
 locals {
-  sep = "-"
+  separator   = "-"
+  environment = "dev"
 }
 
 //rovider "azurerm" {
@@ -18,10 +19,12 @@ locals {
 //
 
 provider "aztools" {
-  environment           = "prd"
-  separator             = local.sep
-  convention            = "default"
-  lowercase             = true
-  schema_naming_path    = "./naming_schema/schema.naming.json"
-  schema_locations_path = "./naming_schema/schema.locations.json"
+  environment = local.environment
+  separator   = local.separator
+  convention  = "default"
+  lowercase   = true
+  # schema_naming_path = "./naming_schema/schema.naming.json"
+  schema_naming_url = "https://raw.githubusercontent.com/glueckkanja-gab/terraform-provider-aztools/main/examples/naming_schema/schema.naming.json"
+  # schema_locations_path = "./naming_schema/schema.locations.json"
+  schema_locations_url = "https://raw.githubusercontent.com/glueckkanja-gab/terraform-provider-aztools/main/examples/naming_schema/schema.locations.json"
 }

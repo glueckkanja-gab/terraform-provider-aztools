@@ -1,16 +1,18 @@
 package provider
 
 import (
+	"bytes"
 	"context"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"net/http"
 	"os"
 
+	"github.com/glueckkanja-gab/terraform-provider-aztools/internal/provider/models"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/mitchellh/go-homedir"
-	"github.com/glueckkanja-gab/terraform-provider-aztools/internal/provider/models"
 )
 
 // AzTools -
@@ -27,7 +29,7 @@ func AzTools(version string) func() *schema.Provider {
 					ValidateFunc: func(val interface{}, key string) (warns []string, errs []error) {
 						v := val.(string)
 						if !(v == "default" || v == "passthrough") {
-							errs = append(errs, fmt.Errorf("Provider configuration: Allowed convention values are 'default' or 'passthrough'"))
+							errs = append(errs, fmt.Errorf("provider configuration: allowed convention values are 'default' or 'passthrough'"))
 						}
 						return
 					},
@@ -51,16 +53,32 @@ func AzTools(version string) func() *schema.Provider {
 					Description: "",
 				},
 				"schema_naming_path": {
-					Type:        schema.TypeString,
-					Optional:    true,
-					DefaultFunc: schema.EnvDefaultFunc("AZF_NAMING_JSON_FILE_PATH", "./schema.naming.json"),
-					Description: "Path to the config file, defaults to ./schema.naming.json",
+					Type:          schema.TypeString,
+					Optional:      true,
+					ConflictsWith: []string{"schema_naming_url"},
+					DefaultFunc:   schema.EnvDefaultFunc("AZF_NAMING_JSON_FILE_PATH", nil),
+					Description:   "Path to the config file.",
+				},
+				"schema_naming_url": {
+					Type:          schema.TypeString,
+					Optional:      true,
+					ConflictsWith: []string{"schema_naming_path"},
+					DefaultFunc:   schema.EnvDefaultFunc("AZF_NAMING_JSON_URL", nil),
+					Description:   "Path to the config file.",
 				},
 				"schema_locations_path": {
-					Type:        schema.TypeString,
-					Optional:    true,
-					DefaultFunc: schema.EnvDefaultFunc("AZF_LOCATIONS_JSON_FILE_PATH", "./schema.locations.json"),
-					Description: "Path to the config file, defaults to ./schema.locations.json",
+					Type:          schema.TypeString,
+					Optional:      true,
+					ConflictsWith: []string{"schema_locations_url"},
+					DefaultFunc:   schema.EnvDefaultFunc("AZF_LOCATIONS_JSON_FILE_PATH", nil),
+					Description:   "Path to the config file.",
+				},
+				"schema_locations_url": {
+					Type:          schema.TypeString,
+					Optional:      true,
+					ConflictsWith: []string{"schema_locations_path"},
+					DefaultFunc:   schema.EnvDefaultFunc("AZF_LOCATIONS_JSON_URL", nil),
+					Description:   "Url to the config file.",
 				},
 			},
 
@@ -106,57 +124,52 @@ func configure(version string, p *schema.Provider) func(context.Context, *schema
 			providerConfig.Lowercase = i.(bool)
 		}
 
-		// load & parse naming schema
-		if configPath, ok := d.GetOk("schema_naming_path"); ok && configPath.(string) != "" {
-			path, err := homedir.Expand(configPath.(string))
-			if err != nil {
-				return nil, diag.FromErr(err)
-			}
+		// load & parse naming schemas
 
-			parsedData, err := parseJSONNamingSchema(path)
-			if err != nil {
-				return nil, diag.FromErr(err)
-			}
-
-			// Build a config map with 'ResourceType' as key:
-			providerConfig.NamingSchemaMap = map[string]models.NamingSchema{}
-			for _, v := range parsedData {
-				providerConfig.NamingSchemaMap[v.ResourceType] = v
-			}
+		parsedDataNamingSchema, err := parseNamingJsonSchema(d)
+		if err != nil {
+			return nil, diag.FromErr(err)
 		}
 
-		// load & parse locations schema
-		if configPath, ok := d.GetOk("schema_locations_path"); ok && configPath.(string) != "" {
-			path, err := homedir.Expand(configPath.(string))
-			if err != nil {
-				return nil, diag.FromErr(err)
-			}
+		// Build a config map with 'ResourceType' as key:
+		providerConfig.NamingSchemaMap = map[string]models.NamingSchema{}
+		for _, v := range parsedDataNamingSchema {
+			providerConfig.NamingSchemaMap[v.ResourceType] = v
+		}
 
-			providerConfig.LocationsMap, err = parseJSONLocationsMapSchema(path)
-			if err != nil {
-				return nil, diag.FromErr(err)
-			}
+		providerConfig.LocationsMap, err = parseLocationsJsonSchema(d)
+		if err != nil {
+			return nil, diag.FromErr(err)
 		}
 
 		return &providerConfig, diags
 	}
 }
 
-func parseJSONNamingSchema(fp string) ([]models.NamingSchema, error) {
+func parseNamingJsonSchema(d *schema.ResourceData) ([]models.NamingSchema, error) {
 
-	// Open our jsonFile
-	jsonFile, err := os.Open(fp)
-	// if we os.Open returns an error then handle it
-	if err != nil {
-		return nil, err
-	}
+	var byteValue []byte
+	var err error
 
-	// defer the closing of our jsonFile so that we can parse it later on
-	defer jsonFile.Close()
+	if configPath, ok := d.GetOk("schema_naming_path"); ok && configPath.(string) != "" {
 
-	// read our opened jsonFile as a byte array.
-	byteValue, err := ioutil.ReadAll(jsonFile)
-	if err != nil {
+		// read our jsonFile from file
+		byteValue, err = readJSONFromFilePath(configPath.(string))
+		if err != nil {
+			return nil, err
+		}
+
+	} else if configUrl, ok := d.GetOk("schema_naming_url"); ok && configUrl.(string) != "" {
+
+		// read our jsonFile from url
+		byteValue, err = readJSONFromUrl(configUrl.(string))
+		if err != nil {
+			return nil, err
+		}
+
+	} else {
+
+		err = fmt.Errorf("provider configuration: failed to read json schema configuration file from '" + configUrl.(string) + "'")
 		return nil, err
 	}
 
@@ -164,25 +177,66 @@ func parseJSONNamingSchema(fp string) ([]models.NamingSchema, error) {
 	var namingSchema []models.NamingSchema
 
 	// we unmarshal our byteArray which contains our
-	// jsonFile's content into 'namingSchema' which we defined above
-	err = json.Unmarshal(byteValue, &namingSchema)
-	if err != nil {
+	// jsonFile's content into 'LocationsMapSchema' which we defined above
+	if err := json.Unmarshal(byteValue, &namingSchema); err != nil {
 		return nil, err
 	}
 
 	return namingSchema, nil
 }
 
-func parseJSONLocationsMapSchema(fp string) (models.LocationsMapSchema, error) {
+func parseLocationsJsonSchema(d *schema.ResourceData) (models.LocationsMapSchema, error) {
 
-	// we initialize our NamingSchema array
+	var byteValue []byte
+	var err error
+
+	if configPath, ok := d.GetOk("schema_locations_path"); ok && configPath.(string) != "" {
+
+		// read our jsonFile from file
+		byteValue, err = readJSONFromFilePath(configPath.(string))
+		if err != nil {
+			return nil, err
+		}
+
+	} else if configUrl, ok := d.GetOk("schema_locations_url"); ok && configUrl.(string) != "" {
+
+		// read our jsonFile from url
+		byteValue, err = readJSONFromUrl(configUrl.(string))
+		if err != nil {
+			return nil, err
+		}
+
+	} else {
+
+		err = fmt.Errorf("provider configuration: failed to read json schema configuration file from '" + configUrl.(string) + "'")
+		return nil, err
+	}
+
+	// we initialize our LocationsSchema array
 	var locationsMap models.LocationsMapSchema
 
+	// we unmarshal our byteArray which contains our
+	// jsonFile's content into 'LocationsMapSchema' which we defined above
+	if err := json.Unmarshal(byteValue, &locationsMap); err != nil {
+		return nil, err
+	}
+
+	return locationsMap, nil
+}
+
+func readJSONFromFilePath(path string) ([]byte, error) {
+
+	// expand local path
+	filePath, err := homedir.Expand(path)
+	if err != nil {
+		return nil, err
+	}
+
 	// Open our jsonFile
-	jsonFile, err := os.Open(fp)
+	jsonFile, err := os.Open(filePath)
 	// if we os.Open returns an error then handle it
 	if err != nil {
-		return locationsMap, err
+		return nil, err
 	}
 
 	// defer the closing of our jsonFile so that we can parse it later on
@@ -191,15 +245,28 @@ func parseJSONLocationsMapSchema(fp string) (models.LocationsMapSchema, error) {
 	// read our opened jsonFile as a byte array.
 	byteValue, err := ioutil.ReadAll(jsonFile)
 	if err != nil {
-		return locationsMap, err
+		return nil, err
 	}
 
-	// we unmarshal our byteArray which contains our
-	// jsonFile's content into 'LocationsMapSchema' which we defined above
-	err = json.Unmarshal(byteValue, &locationsMap)
+	return byteValue, nil
+}
+
+func readJSONFromUrl(url string) ([]byte, error) {
+	resp, err := http.Get(url)
 	if err != nil {
-		return locationsMap, err
+		return nil, err
 	}
 
-	return locationsMap, nil
+	defer resp.Body.Close()
+
+	buf := new(bytes.Buffer)
+	var byteValue []byte
+
+	if _, err := buf.ReadFrom(resp.Body); err == nil {
+		byteValue = buf.Bytes()
+	} else {
+		return nil, err
+	}
+
+	return byteValue, nil
 }

@@ -3,7 +3,7 @@ layout: "aztools"
 page_title: "Provider: AzTools"
 sidebar_current: "docs-aztools-index"
 description: |-
-  Terraform provider aztools.
+  Terraform provider AzTools.
 ---
 
 # AzTools Provider
@@ -35,8 +35,10 @@ The following arguments are supported:
 * `environment` - (Optional) Environment atribute. Defaults to `sandbox`.
 * `separator` - (Optional) Separator between resource arguments. Defaults to `-`.
 * `lowercase` - (Optional) Convert result to lowercase. Possible values are: `true` or `false`. Defaults to `false`.
-* `schema_naming_path` - (Optional) Relative file path from root module to json schema file. Defaults to `./schema.naming.json`
-* `schema_locations_path` - (Optional) Relative file path from root module to json schema file. Defaults to `./schema.locations.json`
+* `schema_naming_path` - (Optional) Relative file path from root module to json schema file.
+* `schema_locations_path` - (Optional) Relative file path from root module to json schema file.
+* `schema_naming_url` - (Optional) Url of json schema file.
+* `schema_locations_url` - (Optional) Url of json schema file.
 
 
 ~> **Note:** `separator` and `environment` can be overrriden using atributes in aztools_resource_name resource

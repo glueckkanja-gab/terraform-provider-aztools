@@ -8,7 +8,7 @@ description: |-
 
 # aztools_resource_name
 
-Azure Foundation naming resource.
+Naming generator resource.
 
 ## Example Usage
 

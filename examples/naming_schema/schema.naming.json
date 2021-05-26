@@ -1,7 +1,7 @@
 [
   {
     "resourceType": "azurerm_analysis_services_server",
-    "prefix": "as",
+    "abbreviation": "as",
     "minLength": 3,
     "maxLength": 63,
     "validationRegex": "^[a-z][a-z0-9]{2,62}$",
@@ -15,7 +15,7 @@
   },
   {
     "resourceType": "azurerm_api_management_service",
-    "prefix": "apim",
+    "abbreviation": "apim",
     "minLength": 1,
     "maxLength": 50,
     "validationRegex": "^[a-z][a-zA-Z0-9-][a-zA-Z0-9]{0,48}$",
@@ -29,7 +29,7 @@
   },
   {
     "resourceType": "azurerm_app_configuration",
-    "prefix": "appcg",
+    "abbreviation": "appcg",
     "minLength": 5,
     "maxLength": 50,
     "validationRegex": "^[a-zA-Z0-9_-]{5,50}$",
@@ -43,7 +43,7 @@
   },
   {
     "resourceType": "azurerm_role_assignment",
-    "prefix": "ra",
+    "abbreviation": "ra",
     "minLength": 1,
     "maxLength": 64,
     "validationRegex": "^[^%]{0,63}[^ %.]$",
@@ -57,7 +57,7 @@
   },
   {
     "resourceType": "azurerm_role_definition",
-    "prefix": "rd",
+    "abbreviation": "rd",
     "minLength": 1,
     "maxLength": 64,
     "validationRegex": "^[^%]{0,63}[^ %.]$",
@@ -71,7 +71,7 @@
   },
   {
     "resourceType": "azurerm_automation_account",
-    "prefix": "aa",
+    "abbreviation": "aa",
     "minLength": 6,
     "maxLength": 50,
     "validationRegex": "^[a-zA-Z][a-zA-Z0-9-]{4,48}[a-zA-Z0-9]$",
@@ -85,7 +85,7 @@
   },
   {
     "resourceType": "azurerm_automation_certificate",
-    "prefix": "aacert",
+    "abbreviation": "aacert",
     "minLength": 1,
     "maxLength": 128,
     "validationRegex": "^[^<>*%:.?+/]{0,127}[^<>*%:.?+/ ]$",
@@ -99,7 +99,7 @@
   },
   {
     "resourceType": "azurerm_automation_credential",
-    "prefix": "aacred",
+    "abbreviation": "aacred",
     "minLength": 1,
     "maxLength": 128,
     "validationRegex": "^[^<>*%:.?+/]{0,127}[^<>*%:.?+/ ]$",
@@ -113,7 +113,7 @@
   },
   {
     "resourceType": "azurerm_automation_runbook",
-    "prefix": "aarun",
+    "abbreviation": "aarun",
     "minLength": 1,
     "maxLength": 63,
     "validationRegex": "^[a-zA-Z][a-zA-Z0-9-]{0,62}$",
@@ -127,7 +127,7 @@
   },
   {
     "resourceType": "azurerm_automation_schedule",
-    "prefix": "aasched",
+    "abbreviation": "aasched",
     "minLength": 1,
     "maxLength": 128,
     "validationRegex": "^[^<>*%:.?+/]{0,127}[^<>*%:.?+/ ]$",
@@ -141,7 +141,7 @@
   },
   {
     "resourceType": "azurerm_automation_variable",
-    "prefix": "aavar",
+    "abbreviation": "aavar",
     "minLength": 1,
     "maxLength": 128,
     "validationRegex": "^[^<>*%:.?+/]{0,127}[^<>*%:.?+/ ]$",
@@ -155,7 +155,7 @@
   },
   {
     "resourceType": "azurerm_batch_account",
-    "prefix": "ba",
+    "abbreviation": "ba",
     "minLength": 3,
     "maxLength": 24,
     "validationRegex": "^[a-z0-9]{3,24}$",
@@ -169,7 +169,7 @@
   },
   {
     "resourceType": "azurerm_batch_application",
-    "prefix": "baapp",
+    "abbreviation": "baapp",
     "minLength": 1,
     "maxLength": 64,
     "validationRegex": "^[a-zA-Z0-9_-]{1,64}$",
@@ -183,7 +183,7 @@
   },
   {
     "resourceType": "azurerm_batch_certificate",
-    "prefix": "bacert",
+    "abbreviation": "bacert",
     "minLength": 5,
     "maxLength": 45,
     "validationRegex": "^[a-zA-Z0-9_-]{5,45}$",
@@ -197,7 +197,7 @@
   },
   {
     "resourceType": "azurerm_batch_pool",
-    "prefix": "bapool",
+    "abbreviation": "bapool",
     "minLength": 3,
     "maxLength": 24,
     "validationRegex": "^[a-zA-Z0-9_-]{1,24}$",
@@ -211,7 +211,7 @@
   },
   {
     "resourceType": "azurerm_bot_web_app",
-    "prefix": "bot",
+    "abbreviation": "bot",
     "minLength": 2,
     "maxLength": 64,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-_.]{1,63}$",
@@ -225,7 +225,7 @@
   },
   {
     "resourceType": "azurerm_bot_channel_Email",
-    "prefix": "botmail",
+    "abbreviation": "botmail",
     "minLength": 2,
     "maxLength": 64,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-_.]{1,63}$",
@@ -239,7 +239,7 @@
   },
   {
     "resourceType": "azurerm_bot_channel_ms_teams",
-    "prefix": "botteams",
+    "abbreviation": "botteams",
     "minLength": 2,
     "maxLength": 64,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-_.]{1,63}$",
@@ -253,7 +253,7 @@
   },
   {
     "resourceType": "azurerm_bot_channel_slack",
-    "prefix": "botslack",
+    "abbreviation": "botslack",
     "minLength": 2,
     "maxLength": 64,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-_.]{1,63}$",
@@ -267,7 +267,7 @@
   },
   {
     "resourceType": "azurerm_bot_channel_directline",
-    "prefix": "botline",
+    "abbreviation": "botline",
     "minLength": 2,
     "maxLength": 64,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-_.]{1,63}$",
@@ -281,7 +281,7 @@
   },
   {
     "resourceType": "azurerm_bot_channels_registration",
-    "prefix": "botchan",
+    "abbreviation": "botchan",
     "minLength": 2,
     "maxLength": 64,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-_.]{1,63}$",
@@ -295,7 +295,7 @@
   },
   {
     "resourceType": "azurerm_bot_connection",
-    "prefix": "botcon",
+    "abbreviation": "botcon",
     "minLength": 2,
     "maxLength": 64,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-_.]{1,63}$",
@@ -309,7 +309,7 @@
   },
   {
     "resourceType": "azurerm_redis_cache",
-    "prefix": "redis",
+    "abbreviation": "redis",
     "minLength": 1,
     "maxLength": 63,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9]$",
@@ -323,7 +323,7 @@
   },
   {
     "resourceType": "azurerm_redis_firewall_rule",
-    "prefix": "redisfw",
+    "abbreviation": "redisfw",
     "minLength": 1,
     "maxLength": 256,
     "validationRegex": "^[a-zA-Z0-9]{1,256}$",
@@ -337,7 +337,7 @@
   },
   {
     "resourceType": "azurerm_cdn_profile",
-    "prefix": "cdnprof",
+    "abbreviation": "cdnprof",
     "minLength": 1,
     "maxLength": 260,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-]{0,258}[a-zA-Z0-9]$",
@@ -351,7 +351,7 @@
   },
   {
     "resourceType": "azurerm_cdn_endpoint",
-    "prefix": "cdn",
+    "abbreviation": "cdn",
     "minLength": 1,
     "maxLength": 50,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-]{0,48}[a-zA-Z0-9]$",
@@ -365,7 +365,7 @@
   },
   {
     "resourceType": "azurerm_cognitive_account",
-    "prefix": "cog",
+    "abbreviation": "cog",
     "minLength": 2,
     "maxLength": 64,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-]{0,63}$",
@@ -379,7 +379,7 @@
   },
   {
     "resourceType": "azurerm_availability_set",
-    "prefix": "avail",
+    "abbreviation": "avail",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-_.]{0,78}[a-zA-Z0-9_]$",
@@ -393,7 +393,7 @@
   },
   {
     "resourceType": "azurerm_disk_encryption_set",
-    "prefix": "des",
+    "abbreviation": "des",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9_]{1,80}$",
@@ -407,7 +407,7 @@
   },
   {
     "resourceType": "azurerm_image",
-    "prefix": "img",
+    "abbreviation": "img",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-_.]{0,78}[a-zA-Z0-9_]$",
@@ -421,7 +421,7 @@
   },
   {
     "resourceType": "azurerm_linux_virtual_machine",
-    "prefix": "vm",
+    "abbreviation": "vm",
     "minLength": 1,
     "maxLength": 64,
     "validationRegex": "^[^/[]:|<>+=;,?*@&_][^/[]:|<>+=;,?*@&]{0,62}[^/[]:|<>+=;,?*@&.-]$",
@@ -435,7 +435,7 @@
   },
   {
     "resourceType": "azurerm_linux_virtual_machine_scale_set",
-    "prefix": "vmss",
+    "abbreviation": "vmss",
     "minLength": 1,
     "maxLength": 64,
     "validationRegex": "^[^/[]:|<>+=;,?*@&_][^/[]:|<>+=;,?*@&]{0,62}[^/[]:|<>+=;,?*@&.-]$",
@@ -449,7 +449,7 @@
   },
   {
     "resourceType": "azurerm_managed_disk",
-    "prefix": "dsk",
+    "abbreviation": "dsk",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9_]{1,80}$",
@@ -463,7 +463,7 @@
   },
   {
     "resourceType": "azurerm_virtual_machine",
-    "prefix": "vm",
+    "abbreviation": "vm",
     "minLength": 1,
     "maxLength": 15,
     "validationRegex": "^[^/[]:|<>+=;,?*@&_][^/[]:|<>+=;,?*@&]{0,13}[^/[]:|<>+=;,?*@&.-]$",
@@ -477,7 +477,7 @@
   },
   {
     "resourceType": "azurerm_virtual_machine_scale_set",
-    "prefix": "vmss",
+    "abbreviation": "vmss",
     "minLength": 1,
     "maxLength": 15,
     "validationRegex": "^[^/[]:|<>+=;,?*@&_][^/[]:|<>+=;,?*@&]{0,13}[^/[]:|<>+=;,?*@&.-]$",
@@ -491,7 +491,7 @@
   },
   {
     "resourceType": "azurerm_windows_virtual_machine",
-    "prefix": "vm",
+    "abbreviation": "vm",
     "minLength": 1,
     "maxLength": 15,
     "validationRegex": "^[^/[]:|<>+=;,?*@&_][^/[]:|<>+=;,?*@&]{0,13}[^/[]:|<>+=;,?*@&.-]$",
@@ -505,7 +505,7 @@
   },
   {
     "resourceType": "azurerm_windows_virtual_machine_scale_set",
-    "prefix": "vmss",
+    "abbreviation": "vmss",
     "minLength": 1,
     "maxLength": 15,
     "validationRegex": "^[^/[]:|<>+=;,?*@&_][^/[]:|<>+=;,?*@&]{0,13}[^/[]:|<>+=;,?*@&.-]$",
@@ -519,7 +519,7 @@
   },
   {
     "resourceType": "azurerm_containerGroups",
-    "prefix": "cg",
+    "abbreviation": "cg",
     "minLength": 1,
     "maxLength": 63,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9]$",
@@ -533,7 +533,7 @@
   },
   {
     "resourceType": "azurerm_container_registry",
-    "prefix": "cr",
+    "abbreviation": "cr",
     "minLength": 1,
     "maxLength": 63,
     "validationRegex": "^[a-zA-Z0-9]{1,63}$",
@@ -547,7 +547,7 @@
   },
   {
     "resourceType": "azurerm_container_registry_webhook",
-    "prefix": "crwh",
+    "abbreviation": "crwh",
     "minLength": 1,
     "maxLength": 50,
     "validationRegex": "^[a-zA-Z0-9]{1,50}$",
@@ -561,7 +561,7 @@
   },
   {
     "resourceType": "azurerm_kubernetes_cluster",
-    "prefix": "aks",
+    "abbreviation": "aks",
     "minLength": 1,
     "maxLength": 63,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-_]{0,61}[a-zA-Z0-9]$",
@@ -575,7 +575,7 @@
   },
   {
     "resourceType": "azurerm_cosmosdb_account",
-    "prefix": "cosmos",
+    "abbreviation": "cosmos",
     "minLength": 1,
     "maxLength": 63,
     "validationRegex": "^[a-z0-9][a-zA-Z0-9-_.]{0,61}[a-zA-Z0-9]$",
@@ -589,7 +589,7 @@
   },
   {
     "resourceType": "azurerm_custom_provider",
-    "prefix": "prov",
+    "abbreviation": "prov",
     "minLength": 3,
     "maxLength": 64,
     "validationRegex": "^[^&%?/]{2,63}[^&%.?/ ]$",
@@ -603,7 +603,7 @@
   },
   {
     "resourceType": "azurerm_mariadb_server",
-    "prefix": "maria",
+    "abbreviation": "maria",
     "minLength": 3,
     "maxLength": 63,
     "validationRegex": "^[a-z0-9][a-zA-Z0-9-]{1,61}[a-z0-9]$",
@@ -617,7 +617,7 @@
   },
   {
     "resourceType": "azurerm_mariadb_firewall_rule",
-    "prefix": "mariafw",
+    "abbreviation": "mariafw",
     "minLength": 1,
     "maxLength": 128,
     "validationRegex": "^[a-zA-Z0-9-_]{1,128}$",
@@ -631,7 +631,7 @@
   },
   {
     "resourceType": "azurerm_mariadb_database",
-    "prefix": "mariadb",
+    "abbreviation": "mariadb",
     "minLength": 1,
     "maxLength": 63,
     "validationRegex": "^[a-zA-Z0-9-_]{1,63}$",
@@ -645,7 +645,7 @@
   },
   {
     "resourceType": "azurerm_mariadb_virtual_network_rule",
-    "prefix": "mariavn",
+    "abbreviation": "mariavn",
     "minLength": 1,
     "maxLength": 128,
     "validationRegex": "^[a-zA-Z0-9-_]{1,128}$",
@@ -659,7 +659,7 @@
   },
   {
     "resourceType": "azurerm_mysql_server",
-    "prefix": "mysql",
+    "abbreviation": "mysql",
     "minLength": 3,
     "maxLength": 63,
     "validationRegex": "^[a-z0-9][a-zA-Z0-9-]{1,61}[a-z0-9]$",
@@ -673,7 +673,7 @@
   },
   {
     "resourceType": "azurerm_mysql_firewall_rule",
-    "prefix": "mysqlfw",
+    "abbreviation": "mysqlfw",
     "minLength": 1,
     "maxLength": 128,
     "validationRegex": "^[a-zA-Z0-9-_]{1,128}$",
@@ -687,7 +687,7 @@
   },
   {
     "resourceType": "azurerm_mysql_database",
-    "prefix": "mysqldb",
+    "abbreviation": "mysqldb",
     "minLength": 1,
     "maxLength": 63,
     "validationRegex": "^[a-zA-Z0-9-_]{1,63}$",
@@ -701,7 +701,7 @@
   },
   {
     "resourceType": "azurerm_mysql_virtual_network_rule",
-    "prefix": "mysqlvn",
+    "abbreviation": "mysqlvn",
     "minLength": 1,
     "maxLength": 128,
     "validationRegex": "^[a-zA-Z0-9-_]{1,128}$",
@@ -715,7 +715,7 @@
   },
   {
     "resourceType": "azurerm_postgresql_server",
-    "prefix": "psql",
+    "abbreviation": "psql",
     "minLength": 3,
     "maxLength": 63,
     "validationRegex": "^[a-z0-9][a-zA-Z0-9-]{1,61}[a-z0-9]$",
@@ -729,7 +729,7 @@
   },
   {
     "resourceType": "azurerm_postgresql_firewall_rule",
-    "prefix": "psqlfw",
+    "abbreviation": "psqlfw",
     "minLength": 1,
     "maxLength": 128,
     "validationRegex": "^[a-zA-Z0-9-_]{1,128}$",
@@ -743,7 +743,7 @@
   },
   {
     "resourceType": "azurerm_postgresql_database",
-    "prefix": "psqldb",
+    "abbreviation": "psqldb",
     "minLength": 1,
     "maxLength": 63,
     "validationRegex": "^[a-zA-Z0-9-_]{1,63}$",
@@ -757,7 +757,7 @@
   },
   {
     "resourceType": "azurerm_postgresql_virtual_network_rule",
-    "prefix": "psqlvn",
+    "abbreviation": "psqlvn",
     "minLength": 1,
     "maxLength": 128,
     "validationRegex": "^[a-zA-Z0-9-_]{1,128}$",
@@ -771,7 +771,7 @@
   },
   {
     "resourceType": "azurerm_database_migration_project",
-    "prefix": "migr",
+    "abbreviation": "migr",
     "minLength": 2,
     "maxLength": 57,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-_.]{1,56}$",
@@ -785,7 +785,7 @@
   },
   {
     "resourceType": "azurerm_database_migration_service",
-    "prefix": "dms",
+    "abbreviation": "dms",
     "minLength": 2,
     "maxLength": 62,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-_.]{1,61}$",
@@ -799,7 +799,7 @@
   },
   {
     "resourceType": "azurerm_databricks_workspace",
-    "prefix": "dbw",
+    "abbreviation": "dbw",
     "minLength": 3,
     "maxLength": 30,
     "validationRegex": "^[a-zA-Z0-9-_]{3,30}$",
@@ -813,7 +813,7 @@
   },
   {
     "resourceType": "azurerm_kusto_cluster",
-    "prefix": "kc",
+    "abbreviation": "kc",
     "minLength": 4,
     "maxLength": 22,
     "validationRegex": "^[a-z][a-z0-9]{3,21}$",
@@ -827,7 +827,7 @@
   },
   {
     "resourceType": "azurerm_kusto_database",
-    "prefix": "kdb",
+    "abbreviation": "kdb",
     "minLength": 1,
     "maxLength": 260,
     "validationRegex": "^[a-zA-Z0-9- .]{1,260}$",
@@ -841,7 +841,7 @@
   },
   {
     "resourceType": "azurerm_kusto_eventhub_data_connection",
-    "prefix": "kehc",
+    "abbreviation": "kehc",
     "minLength": 1,
     "maxLength": 40,
     "validationRegex": "^[a-zA-Z0-9- .]{1,40}$",
@@ -855,7 +855,7 @@
   },
   {
     "resourceType": "azurerm_data_factory",
-    "prefix": "adf",
+    "abbreviation": "adf",
     "minLength": 3,
     "maxLength": 63,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]$",
@@ -869,7 +869,7 @@
   },
   {
     "resourceType": "azurerm_data_factory_dataset_mysql",
-    "prefix": "adfmysql",
+    "abbreviation": "adfmysql",
     "minLength": 1,
     "maxLength": 260,
     "validationRegex": "^[a-zA-Z0-9][^<>*%:.?+/]{0,258}[a-zA-Z0-9]$",
@@ -883,7 +883,7 @@
   },
   {
     "resourceType": "azurerm_data_factory_dataset_postgresql",
-    "prefix": "adfpsql",
+    "abbreviation": "adfpsql",
     "minLength": 1,
     "maxLength": 260,
     "validationRegex": "^[a-zA-Z0-9][^<>*%:.?+/]{0,258}[a-zA-Z0-9]$",
@@ -897,7 +897,7 @@
   },
   {
     "resourceType": "azurerm_data_factory_dataset_sql_server_table",
-    "prefix": "adfmssql",
+    "abbreviation": "adfmssql",
     "minLength": 1,
     "maxLength": 260,
     "validationRegex": "^[a-zA-Z0-9][^<>*%:.?+/]{0,258}[a-zA-Z0-9]$",
@@ -911,7 +911,7 @@
   },
   {
     "resourceType": "azurerm_data_factory_integration_runtime_managed",
-    "prefix": "adfir",
+    "abbreviation": "adfir",
     "minLength": 3,
     "maxLength": 63,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]$",
@@ -925,7 +925,7 @@
   },
   {
     "resourceType": "azurerm_data_factory_pipeline",
-    "prefix": "adfpl",
+    "abbreviation": "adfpl",
     "minLength": 1,
     "maxLength": 260,
     "validationRegex": "^[a-zA-Z0-9][^<>*%:.?+/]{0,258}[a-zA-Z0-9]$",
@@ -939,7 +939,7 @@
   },
   {
     "resourceType": "azurerm_data_factory_linked_service_data_lake_storage_gen2",
-    "prefix": "adfsvst",
+    "abbreviation": "adfsvst",
     "minLength": 1,
     "maxLength": 260,
     "validationRegex": "^[a-zA-Z0-9][^<>*%:.?+/]{0,259}$",
@@ -953,7 +953,7 @@
   },
   {
     "resourceType": "azurerm_data_factory_linked_service_key_vault",
-    "prefix": "adfsvkv",
+    "abbreviation": "adfsvkv",
     "minLength": 1,
     "maxLength": 260,
     "validationRegex": "^[a-zA-Z0-9][^<>*%:.?+/]{0,259}$",
@@ -967,7 +967,7 @@
   },
   {
     "resourceType": "azurerm_recovery_services_vault",
-    "prefix": "rsv",
+    "abbreviation": "rsv",
     "minLength": 2,
     "maxLength": 50,
     "validationRegex": "^[a-zA-Z][a-zA-Z0-9-]{1,49}$",
@@ -981,7 +981,7 @@
   },
   {
     "resourceType": "azurerm_recovery_services_vault_backup_police",
-    "prefix": "rsvbp",
+    "abbreviation": "rsvbp",
     "minLength": 3,
     "maxLength": 150,
     "validationRegex": "^[a-zA-Z][a-zA-Z0-9-]{1,148}[a-zA-Z0-9]$",
@@ -995,7 +995,7 @@
   },
   {
     "resourceType": "azurerm_data_factory_linked_service_mysql",
-    "prefix": "adfsvmysql",
+    "abbreviation": "adfsvmysql",
     "minLength": 1,
     "maxLength": 260,
     "validationRegex": "^[a-zA-Z0-9][^<>*%:.?+/]{0,259}$",
@@ -1009,7 +1009,7 @@
   },
   {
     "resourceType": "azurerm_data_factory_linked_service_postgresql",
-    "prefix": "adfsvpsql",
+    "abbreviation": "adfsvpsql",
     "minLength": 1,
     "maxLength": 260,
     "validationRegex": "^[a-zA-Z0-9][^<>*%:.?+/]{0,259}$",
@@ -1023,7 +1023,7 @@
   },
   {
     "resourceType": "azurerm_data_factory_linked_service_sql_server",
-    "prefix": "adfsvmssql",
+    "abbreviation": "adfsvmssql",
     "minLength": 1,
     "maxLength": 260,
     "validationRegex": "^[a-zA-Z0-9][^<>*%:.?+/]{0,259}$",
@@ -1037,7 +1037,7 @@
   },
   {
     "resourceType": "azurerm_data_factory_trigger_schedule",
-    "prefix": "adftg",
+    "abbreviation": "adftg",
     "minLength": 1,
     "maxLength": 260,
     "validationRegex": "^[a-zA-Z0-9][^<>*%:.?+/]{0,259}$",
@@ -1051,7 +1051,7 @@
   },
   {
     "resourceType": "azurerm_data_lake_analytics_account",
-    "prefix": "dla",
+    "abbreviation": "dla",
     "minLength": 3,
     "maxLength": 24,
     "validationRegex": "^[a-z0-9]{3,24}$",
@@ -1065,7 +1065,7 @@
   },
   {
     "resourceType": "azurerm_data_lake_analytics_firewall_rule",
-    "prefix": "dlfw",
+    "abbreviation": "dlfw",
     "minLength": 3,
     "maxLength": 50,
     "validationRegex": "^[a-z0-9-_]{3,50}$",
@@ -1079,7 +1079,7 @@
   },
   {
     "resourceType": "azurerm_data_lake_store",
-    "prefix": "dls",
+    "abbreviation": "dls",
     "minLength": 3,
     "maxLength": 24,
     "validationRegex": "^[a-z0-9]{3,24}$",
@@ -1093,7 +1093,7 @@
   },
   {
     "resourceType": "azurerm_data_lake_store_firewall_rule",
-    "prefix": "dlsfw",
+    "abbreviation": "dlsfw",
     "minLength": 3,
     "maxLength": 50,
     "validationRegex": "^[a-zA-Z0-9-_]{3,50}$",
@@ -1107,7 +1107,7 @@
   },
   {
     "resourceType": "azurerm_dev_test_lab",
-    "prefix": "lab",
+    "abbreviation": "lab",
     "minLength": 1,
     "maxLength": 50,
     "validationRegex": "^[a-zA-Z0-9-_]{1,50}$",
@@ -1121,7 +1121,7 @@
   },
   {
     "resourceType": "azurerm_dev_test_linux_virtual_machine",
-    "prefix": "labvm",
+    "abbreviation": "labvm",
     "minLength": 1,
     "maxLength": 64,
     "validationRegex": "^[a-zA-Z0-9-]{1,64}$",
@@ -1135,7 +1135,7 @@
   },
   {
     "resourceType": "azurerm_dev_test_windows_virtual_machine",
-    "prefix": "labvm",
+    "abbreviation": "labvm",
     "minLength": 1,
     "maxLength": 15,
     "validationRegex": "^[a-zA-Z0-9-]{1,15}$",
@@ -1149,7 +1149,7 @@
   },
   {
     "resourceType": "azurerm_frontdoor",
-    "prefix": "fd",
+    "abbreviation": "fd",
     "minLength": 5,
     "maxLength": 64,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-]{3,62}[a-zA-Z0-9]$",
@@ -1163,7 +1163,7 @@
   },
   {
     "resourceType": "azurerm_frontdoor_firewall_policy",
-    "prefix": "fdfw",
+    "abbreviation": "fdfw",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -1177,7 +1177,7 @@
   },
   {
     "resourceType": "azurerm_hdinsight_hadoop_cluster",
-    "prefix": "hadoop",
+    "abbreviation": "hadoop",
     "minLength": 3,
     "maxLength": 59,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-]{1,57}[a-zA-Z0-9]$",
@@ -1191,7 +1191,7 @@
   },
   {
     "resourceType": "azurerm_hdinsight_hbase_cluster",
-    "prefix": "hbase",
+    "abbreviation": "hbase",
     "minLength": 3,
     "maxLength": 59,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-]{1,57}[a-zA-Z0-9]$",
@@ -1205,7 +1205,7 @@
   },
   {
     "resourceType": "azurerm_hdinsight_kafka_cluster",
-    "prefix": "kafka",
+    "abbreviation": "kafka",
     "minLength": 3,
     "maxLength": 59,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-]{1,57}[a-zA-Z0-9]$",
@@ -1219,7 +1219,7 @@
   },
   {
     "resourceType": "azurerm_hdinsight_interactive_query_cluster",
-    "prefix": "iqr",
+    "abbreviation": "iqr",
     "minLength": 3,
     "maxLength": 59,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-]{1,57}[a-zA-Z0-9]$",
@@ -1233,7 +1233,7 @@
   },
   {
     "resourceType": "azurerm_hdinsight_ml_services_cluster",
-    "prefix": "mls",
+    "abbreviation": "mls",
     "minLength": 3,
     "maxLength": 59,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-]{1,57}[a-zA-Z0-9]$",
@@ -1247,7 +1247,7 @@
   },
   {
     "resourceType": "azurerm_hdinsight_rserver_cluster",
-    "prefix": "rser",
+    "abbreviation": "rser",
     "minLength": 3,
     "maxLength": 59,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-]{1,57}[a-zA-Z0-9]$",
@@ -1261,7 +1261,7 @@
   },
   {
     "resourceType": "azurerm_hdinsight_spark_cluster",
-    "prefix": "spark",
+    "abbreviation": "spark",
     "minLength": 3,
     "maxLength": 59,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-]{1,57}[a-zA-Z0-9]$",
@@ -1275,7 +1275,7 @@
   },
   {
     "resourceType": "azurerm_hdinsight_storm_cluster",
-    "prefix": "storm",
+    "abbreviation": "storm",
     "minLength": 3,
     "maxLength": 59,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-]{1,57}[a-zA-Z0-9]$",
@@ -1289,7 +1289,7 @@
   },
   {
     "resourceType": "azurerm_iotcentral_application",
-    "prefix": "iotapp",
+    "abbreviation": "iotapp",
     "minLength": 2,
     "maxLength": 63,
     "validationRegex": "^[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$",
@@ -1303,7 +1303,7 @@
   },
   {
     "resourceType": "azurerm_iothub",
-    "prefix": "iot",
+    "abbreviation": "iot",
     "minLength": 3,
     "maxLength": 50,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-]{1,48}[a-z0-9]$",
@@ -1317,7 +1317,7 @@
   },
   {
     "resourceType": "azurerm_iothub_consumer_group",
-    "prefix": "iotcg",
+    "abbreviation": "iotcg",
     "minLength": 1,
     "maxLength": 50,
     "validationRegex": "^[a-zA-Z0-9-._]{1,50}$",
@@ -1331,7 +1331,7 @@
   },
   {
     "resourceType": "azurerm_iothub_dps",
-    "prefix": "dps",
+    "abbreviation": "dps",
     "minLength": 3,
     "maxLength": 64,
     "validationRegex": "^[a-zA-Z0-9-]{1,63}[a-zA-Z0-9]$",
@@ -1345,7 +1345,7 @@
   },
   {
     "resourceType": "azurerm_iothub_dps_certificate",
-    "prefix": "dpscert",
+    "abbreviation": "dpscert",
     "minLength": 1,
     "maxLength": 64,
     "validationRegex": "^[a-zA-Z0-9-._]{1,64}$",
@@ -1359,7 +1359,7 @@
   },
   {
     "resourceType": "azurerm_key_vault",
-    "prefix": "kv",
+    "abbreviation": "kv",
     "minLength": 3,
     "maxLength": 24,
     "validationRegex": "^[a-zA-Z][a-zA-Z0-9-]{1,22}[a-zA-Z0-9]$",
@@ -1373,7 +1373,7 @@
   },
   {
     "resourceType": "azurerm_key_vault_key",
-    "prefix": "kvk",
+    "abbreviation": "kvk",
     "minLength": 1,
     "maxLength": 127,
     "validationRegex": "^[a-zA-Z0-9-]{1,127}$",
@@ -1387,7 +1387,7 @@
   },
   {
     "resourceType": "azurerm_key_vault_secret",
-    "prefix": "kvs",
+    "abbreviation": "kvs",
     "minLength": 1,
     "maxLength": 127,
     "validationRegex": "^[a-zA-Z0-9-]{1,127}$",
@@ -1401,7 +1401,7 @@
   },
   {
     "resourceType": "azurerm_key_vault_certificate",
-    "prefix": "kvc",
+    "abbreviation": "kvc",
     "minLength": 1,
     "maxLength": 127,
     "validationRegex": "^[a-zA-Z0-9-]{1,127}$",
@@ -1415,7 +1415,7 @@
   },
   {
     "resourceType": "azurerm_lb",
-    "prefix": "lb",
+    "abbreviation": "lb",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -1429,7 +1429,7 @@
   },
   {
     "resourceType": "azurerm_lb_nat_rule",
-    "prefix": "lbnatrl",
+    "abbreviation": "lbnatrl",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -1443,7 +1443,7 @@
   },
   {
     "resourceType": "azurerm_public_ip",
-    "prefix": "pip",
+    "abbreviation": "pip",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -1456,8 +1456,8 @@
     }
   },
   {
-    "resourceType": "azurerm_public_ip_prefix",
-    "prefix": "pippf",
+    "resourceType": "azurerm_public_ip_abbreviation",
+    "abbreviation": "pippf",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -1471,7 +1471,7 @@
   },
   {
     "resourceType": "azurerm_route",
-    "prefix": "rt",
+    "abbreviation": "rt",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -1485,7 +1485,7 @@
   },
   {
     "resourceType": "azurerm_route_table",
-    "prefix": "route",
+    "abbreviation": "route",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -1499,7 +1499,7 @@
   },
   {
     "resourceType": "azurerm_subnet",
-    "prefix": "snet",
+    "abbreviation": "snet",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -1513,7 +1513,7 @@
   },
   {
     "resourceType": "azurerm_traffic_manager_profile",
-    "prefix": "traf",
+    "abbreviation": "traf",
     "minLength": 1,
     "maxLength": 63,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-.]{0,61}[a-zA-Z0-9_]$",
@@ -1527,7 +1527,7 @@
   },
   {
     "resourceType": "azurerm_virtual_wan",
-    "prefix": "vwan",
+    "abbreviation": "vwan",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -1541,7 +1541,7 @@
   },
   {
     "resourceType": "azurerm_virtual_network",
-    "prefix": "vnet",
+    "abbreviation": "vnet",
     "minLength": 2,
     "maxLength": 64,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,62}[a-zA-Z0-9_]$",
@@ -1555,7 +1555,7 @@
   },
   {
     "resourceType": "azurerm_virtual_network_gateway",
-    "prefix": "vgw",
+    "abbreviation": "vgw",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -1569,7 +1569,7 @@
   },
   {
     "resourceType": "azurerm_virtual_network_peering",
-    "prefix": "vpeer",
+    "abbreviation": "vpeer",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -1583,7 +1583,7 @@
   },
   {
     "resourceType": "azurerm_network_interface",
-    "prefix": "nic",
+    "abbreviation": "nic",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -1597,7 +1597,7 @@
   },
   {
     "resourceType": "azurerm_firewall",
-    "prefix": "fw",
+    "abbreviation": "fw",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -1611,7 +1611,7 @@
   },
   {
     "resourceType": "azurerm_eventhub",
-    "prefix": "evh",
+    "abbreviation": "evh",
     "minLength": 1,
     "maxLength": 50,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,48}[a-zA-Z0-9]$",
@@ -1625,7 +1625,7 @@
   },
   {
     "resourceType": "azurerm_eventhub_namespace",
-    "prefix": "ehn",
+    "abbreviation": "ehn",
     "minLength": 1,
     "maxLength": 50,
     "validationRegex": "^[a-zA-Z][a-zA-Z0-9-]{0,48}[a-zA-Z0-9]$",
@@ -1639,7 +1639,7 @@
   },
   {
     "resourceType": "azurerm_eventhub_authorization_rule",
-    "prefix": "ehar",
+    "abbreviation": "ehar",
     "minLength": 1,
     "maxLength": 50,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,48}[a-zA-Z0-9]$",
@@ -1653,7 +1653,7 @@
   },
   {
     "resourceType": "azurerm_eventhub_namespace_authorization_rule",
-    "prefix": "ehnar",
+    "abbreviation": "ehnar",
     "minLength": 1,
     "maxLength": 50,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,48}[a-zA-Z0-9]$",
@@ -1667,7 +1667,7 @@
   },
   {
     "resourceType": "azurerm_eventhub_namespace_disaster_recovery_config",
-    "prefix": "ehdr",
+    "abbreviation": "ehdr",
     "minLength": 1,
     "maxLength": 50,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,48}[a-zA-Z0-9]$",
@@ -1681,7 +1681,7 @@
   },
   {
     "resourceType": "azurerm_eventhub_consumer_group",
-    "prefix": "ehcg",
+    "abbreviation": "ehcg",
     "minLength": 1,
     "maxLength": 50,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,48}[a-zA-Z0-9]$",
@@ -1695,7 +1695,7 @@
   },
   {
     "resourceType": "azurerm_stream_analytics_job",
-    "prefix": "asa",
+    "abbreviation": "asa",
     "minLength": 3,
     "maxLength": 63,
     "validationRegex": "^[a-zA-Z0-9-_]{3,63}$",
@@ -1709,7 +1709,7 @@
   },
   {
     "resourceType": "azurerm_stream_analytics_function_javascript_udf",
-    "prefix": "asafunc",
+    "abbreviation": "asafunc",
     "minLength": 3,
     "maxLength": 63,
     "validationRegex": "^[a-zA-Z0-9-_]{3,63}$",
@@ -1723,7 +1723,7 @@
   },
   {
     "resourceType": "azurerm_stream_analytics_output_blob",
-    "prefix": "asaoblob",
+    "abbreviation": "asaoblob",
     "minLength": 3,
     "maxLength": 63,
     "validationRegex": "^[a-zA-Z0-9-_]{3,63}$",
@@ -1737,7 +1737,7 @@
   },
   {
     "resourceType": "azurerm_stream_analytics_output_mssql",
-    "prefix": "asaomssql",
+    "abbreviation": "asaomssql",
     "minLength": 3,
     "maxLength": 63,
     "validationRegex": "^[a-zA-Z0-9-_]{3,63}$",
@@ -1751,7 +1751,7 @@
   },
   {
     "resourceType": "azurerm_stream_analytics_output_eventhub",
-    "prefix": "asaoeh",
+    "abbreviation": "asaoeh",
     "minLength": 3,
     "maxLength": 63,
     "validationRegex": "^[a-zA-Z0-9-_]{3,63}$",
@@ -1765,7 +1765,7 @@
   },
   {
     "resourceType": "azurerm_stream_analytics_output_servicebus_queue",
-    "prefix": "asaosbq",
+    "abbreviation": "asaosbq",
     "minLength": 3,
     "maxLength": 63,
     "validationRegex": "^[a-zA-Z0-9-_]{3,63}$",
@@ -1779,7 +1779,7 @@
   },
   {
     "resourceType": "azurerm_stream_analytics_output_servicebus_topic",
-    "prefix": "asaosbt",
+    "abbreviation": "asaosbt",
     "minLength": 3,
     "maxLength": 63,
     "validationRegex": "^[a-zA-Z0-9-_]{3,63}$",
@@ -1793,7 +1793,7 @@
   },
   {
     "resourceType": "azurerm_stream_analytics_reference_input_blob",
-    "prefix": "asarblob",
+    "abbreviation": "asarblob",
     "minLength": 3,
     "maxLength": 63,
     "validationRegex": "^[a-zA-Z0-9-_]{3,63}$",
@@ -1807,7 +1807,7 @@
   },
   {
     "resourceType": "azurerm_stream_analytics_stream_input_blob",
-    "prefix": "asaiblob",
+    "abbreviation": "asaiblob",
     "minLength": 3,
     "maxLength": 63,
     "validationRegex": "^[a-zA-Z0-9-_]{3,63}$",
@@ -1821,7 +1821,7 @@
   },
   {
     "resourceType": "azurerm_stream_analytics_stream_input_eventhub",
-    "prefix": "asaieh",
+    "abbreviation": "asaieh",
     "minLength": 3,
     "maxLength": 63,
     "validationRegex": "^[a-zA-Z0-9-_]{3,63}$",
@@ -1835,7 +1835,7 @@
   },
   {
     "resourceType": "azurerm_stream_analytics_stream_input_iothub",
-    "prefix": "asaiiot",
+    "abbreviation": "asaiiot",
     "minLength": 3,
     "maxLength": 63,
     "validationRegex": "^[a-zA-Z0-9-_]{3,63}$",
@@ -1849,7 +1849,7 @@
   },
   {
     "resourceType": "azurerm_shared_image_gallery",
-    "prefix": "sig",
+    "abbreviation": "sig",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9.]{0,78}[a-zA-Z0-9]$",
@@ -1863,7 +1863,7 @@
   },
   {
     "resourceType": "azurerm_shared_image",
-    "prefix": "si",
+    "abbreviation": "si",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9]$",
@@ -1877,7 +1877,7 @@
   },
   {
     "resourceType": "azurerm_snapshots",
-    "prefix": "snap",
+    "abbreviation": "snap",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -1891,7 +1891,7 @@
   },
   {
     "resourceType": "azurerm_storage_account",
-    "prefix": "st",
+    "abbreviation": "st",
     "minLength": 3,
     "maxLength": 24,
     "validationRegex": "^[a-z0-9]{3,24}$",
@@ -1905,7 +1905,7 @@
   },
   {
     "resourceType": "azurerm_storage_container",
-    "prefix": "stct",
+    "abbreviation": "stct",
     "minLength": 3,
     "maxLength": 63,
     "validationRegex": "^[a-z0-9][a-z0-9-]{2,62}$",
@@ -1919,7 +1919,7 @@
   },
   {
     "resourceType": "azurerm_storage_data_lake_gen2_filesystem",
-    "prefix": "stdl",
+    "abbreviation": "stdl",
     "minLength": 3,
     "maxLength": 63,
     "validationRegex": "^[a-z0-9][a-z0-9-]{1,61}[a-z0-9]$",
@@ -1933,7 +1933,7 @@
   },
   {
     "resourceType": "azurerm_storage_queue",
-    "prefix": "stq",
+    "abbreviation": "stq",
     "minLength": 3,
     "maxLength": 63,
     "validationRegex": "^[a-z0-9][a-z0-9-]{1,61}[a-z0-9]$",
@@ -1947,7 +1947,7 @@
   },
   {
     "resourceType": "azurerm_storage_table",
-    "prefix": "stt",
+    "abbreviation": "stt",
     "minLength": 3,
     "maxLength": 63,
     "validationRegex": "^[a-z0-9][a-z0-9-]{1,61}[a-z0-9]$",
@@ -1961,7 +1961,7 @@
   },
   {
     "resourceType": "azurerm_storage_share",
-    "prefix": "sts",
+    "abbreviation": "sts",
     "minLength": 3,
     "maxLength": 63,
     "validationRegex": "^[a-z0-9][a-z0-9-]{1,61}[a-z0-9]$",
@@ -1975,7 +1975,7 @@
   },
   {
     "resourceType": "azurerm_storage_share_directory",
-    "prefix": "sts",
+    "abbreviation": "sts",
     "minLength": 3,
     "maxLength": 63,
     "validationRegex": "^[a-z0-9][a-z0-9-]{1,61}[a-z0-9]$",
@@ -1989,7 +1989,7 @@
   },
   {
     "resourceType": "azurerm_machine_learning_workspace",
-    "prefix": "mlw",
+    "abbreviation": "mlw",
     "minLength": 1,
     "maxLength": 260,
     "validationRegex": "^[^<>*%:.?+/]{0,259}[^<>*%:.?+/ ]$",
@@ -2003,7 +2003,7 @@
   },
   {
     "resourceType": "azurerm_storage_blob",
-    "prefix": "blob",
+    "abbreviation": "blob",
     "minLength": 1,
     "maxLength": 1024,
     "validationRegex": "^[^s/$#&]{1,1000}[^s/$#&]{0,24}$",
@@ -2017,7 +2017,7 @@
   },
   {
     "resourceType": "azurerm_bastion_host",
-    "prefix": "bast",
+    "abbreviation": "bast",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -2031,7 +2031,7 @@
   },
   {
     "resourceType": "azurerm_local_network_gateway",
-    "prefix": "lgw",
+    "abbreviation": "lgw",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -2045,7 +2045,7 @@
   },
   {
     "resourceType": "azurerm_application_gateway",
-    "prefix": "agw",
+    "abbreviation": "agw",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -2059,7 +2059,7 @@
   },
   {
     "resourceType": "azurerm_express_route_gateway",
-    "prefix": "ergw",
+    "abbreviation": "ergw",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -2073,7 +2073,7 @@
   },
   {
     "resourceType": "azurerm_express_route_circuit",
-    "prefix": "erc",
+    "abbreviation": "erc",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -2087,7 +2087,7 @@
   },
   {
     "resourceType": "azurerm_point_to_site_vpn_gateway",
-    "prefix": "vpngw",
+    "abbreviation": "vpngw",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -2101,7 +2101,7 @@
   },
   {
     "resourceType": "azurerm_template_deployment",
-    "prefix": "deploy",
+    "abbreviation": "deploy",
     "minLength": 1,
     "maxLength": 64,
     "validationRegex": "^[a-zA-Z0-9-._()]{1,64}$",
@@ -2115,7 +2115,7 @@
   },
   {
     "resourceType": "azurerm_sql_server",
-    "prefix": "sql",
+    "abbreviation": "sql",
     "minLength": 1,
     "maxLength": 63,
     "validationRegex": "^[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$",
@@ -2129,7 +2129,7 @@
   },
   {
     "resourceType": "azurerm_mssql_server",
-    "prefix": "sql",
+    "abbreviation": "sql",
     "minLength": 1,
     "maxLength": 63,
     "validationRegex": "^[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$",
@@ -2143,7 +2143,7 @@
   },
   {
     "resourceType": "azurerm_mssql_database",
-    "prefix": "sqldb",
+    "abbreviation": "sqldb",
     "minLength": 1,
     "maxLength": 128,
     "validationRegex": "^[^<>*%:.?+/]{1,127}[^<>*%:.?+/ ]$",
@@ -2157,7 +2157,7 @@
   },
   {
     "resourceType": "azurerm_sql_elasticpool",
-    "prefix": "sqlep",
+    "abbreviation": "sqlep",
     "minLength": 1,
     "maxLength": 128,
     "validationRegex": "^[^<>*%:.?+/]{1,127}[^<>*%:.?+/ ]$",
@@ -2171,7 +2171,7 @@
   },
   {
     "resourceType": "azurerm_mssql_elasticpool",
-    "prefix": "sqlep",
+    "abbreviation": "sqlep",
     "minLength": 1,
     "maxLength": 128,
     "validationRegex": "^[^<>*%:.?+/]{1,127}[^<>*%:.?+/ ]$",
@@ -2185,7 +2185,7 @@
   },
   {
     "resourceType": "azurerm_sql_failover_group",
-    "prefix": "sqlfg",
+    "abbreviation": "sqlfg",
     "minLength": 1,
     "maxLength": 63,
     "validationRegex": "^[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$",
@@ -2199,7 +2199,7 @@
   },
   {
     "resourceType": "azurerm_sql_firewall_rule",
-    "prefix": "sqlfw",
+    "abbreviation": "sqlfw",
     "minLength": 1,
     "maxLength": 128,
     "validationRegex": "^[^<>*%:?+/]{1,127}[^<>*%:.?+/]$",
@@ -2213,7 +2213,7 @@
   },
   {
     "resourceType": "azurerm_log_analytics_workspace",
-    "prefix": "log",
+    "abbreviation": "log",
     "minLength": 4,
     "maxLength": 63,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-]{2,61}[a-zA-Z0-9]$",
@@ -2227,7 +2227,7 @@
   },
   {
     "resourceType": "azurerm_service_fabric_cluster",
-    "prefix": "sf",
+    "abbreviation": "sf",
     "minLength": 4,
     "maxLength": 23,
     "validationRegex": "^[a-z][a-z0-9-]{2,21}[a-z0-9]$",
@@ -2241,7 +2241,7 @@
   },
   {
     "resourceType": "azurerm_maps_account",
-    "prefix": "map",
+    "abbreviation": "map",
     "minLength": 1,
     "maxLength": 98,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,97}$",
@@ -2255,7 +2255,7 @@
   },
   {
     "resourceType": "azurerm_network_watcher",
-    "prefix": "nw",
+    "abbreviation": "nw",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -2269,12 +2269,12 @@
   },
   {
     "resourceType": "azurerm_resource_group",
-    "prefix": "rg",
+    "abbreviation": "rg",
     "minLength": 1,
     "maxLength": 90,
     "validationRegex": "^[a-zA-Z0-9-._()]{0,89}[a-zA-Z0-9-_()]$",
     "configuration": {
-      "useEnvironment": true,
+      "useEnvironment": false,
       "useLowerCase": false,
       "useSeparator": true,
       "denyDoubleHyphens": false,
@@ -2283,7 +2283,7 @@
   },
   {
     "resourceType": "azurerm_network_security_group",
-    "prefix": "nsg",
+    "abbreviation": "nsg",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -2297,7 +2297,7 @@
   },
   {
     "resourceType": "azurerm_network_security_group_rule",
-    "prefix": "nsgr",
+    "abbreviation": "nsgr",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -2311,7 +2311,7 @@
   },
   {
     "resourceType": "azurerm_network_security_rule",
-    "prefix": "nsgr",
+    "abbreviation": "nsgr",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -2325,7 +2325,7 @@
   },
   {
     "resourceType": "azurerm_application_security_group",
-    "prefix": "asg",
+    "abbreviation": "asg",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -2339,7 +2339,7 @@
   },
   {
     "resourceType": "azurerm_dns_zone",
-    "prefix": "dns",
+    "abbreviation": "dns",
     "minLength": 1,
     "maxLength": 63,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,61}[a-zA-Z0-9_]$",
@@ -2353,7 +2353,7 @@
   },
   {
     "resourceType": "azurerm_private_dns_zone",
-    "prefix": "pdns",
+    "abbreviation": "pdns",
     "minLength": 1,
     "maxLength": 63,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,61}[a-zA-Z0-9_]$",
@@ -2367,7 +2367,7 @@
   },
   {
     "resourceType": "azurerm_notification_hub",
-    "prefix": "nh",
+    "abbreviation": "nh",
     "minLength": 1,
     "maxLength": 260,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,259}$",
@@ -2381,7 +2381,7 @@
   },
   {
     "resourceType": "azurerm_notification_hub_namespace",
-    "prefix": "dnsrec",
+    "abbreviation": "dnsrec",
     "minLength": 6,
     "maxLength": 50,
     "validationRegex": "^[a-zA-Z][a-zA-Z0-9-]{4,48}[a-zA-Z0-9]$",
@@ -2395,7 +2395,7 @@
   },
   {
     "resourceType": "azurerm_notification_hub_authorization_rule",
-    "prefix": "dnsrec",
+    "abbreviation": "dnsrec",
     "minLength": 1,
     "maxLength": 256,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,255}$",
@@ -2409,7 +2409,7 @@
   },
   {
     "resourceType": "azurerm_servicebus_namespace",
-    "prefix": "sb",
+    "abbreviation": "sb",
     "minLength": 6,
     "maxLength": 50,
     "validationRegex": "^[a-zA-Z][a-zA-Z0-9-]{4,48}[a-zA-Z0-9]$",
@@ -2423,7 +2423,7 @@
   },
   {
     "resourceType": "azurerm_servicebus_namespace_authorization_rule",
-    "prefix": "sbar",
+    "abbreviation": "sbar",
     "minLength": 1,
     "maxLength": 50,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,48}[a-zA-Z0-9]$",
@@ -2437,7 +2437,7 @@
   },
   {
     "resourceType": "azurerm_servicebus_queue",
-    "prefix": "sbq",
+    "abbreviation": "sbq",
     "minLength": 1,
     "maxLength": 260,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,258}[a-zA-Z0-9_]$",
@@ -2451,7 +2451,7 @@
   },
   {
     "resourceType": "azurerm_servicebus_queue_authorization_rule",
-    "prefix": "sbqar",
+    "abbreviation": "sbqar",
     "minLength": 1,
     "maxLength": 50,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,48}[a-zA-Z0-9]$",
@@ -2465,7 +2465,7 @@
   },
   {
     "resourceType": "azurerm_servicebus_subscription",
-    "prefix": "sbs",
+    "abbreviation": "sbs",
     "minLength": 1,
     "maxLength": 50,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,48}[a-zA-Z0-9]$",
@@ -2479,7 +2479,7 @@
   },
   {
     "resourceType": "azurerm_servicebus_subscription_rule",
-    "prefix": "sbsr",
+    "abbreviation": "sbsr",
     "minLength": 1,
     "maxLength": 50,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,48}[a-zA-Z0-9]$",
@@ -2493,7 +2493,7 @@
   },
   {
     "resourceType": "azurerm_servicebus_topic",
-    "prefix": "sbt",
+    "abbreviation": "sbt",
     "minLength": 1,
     "maxLength": 260,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,258}[a-zA-Z0-9]$",
@@ -2507,7 +2507,7 @@
   },
   {
     "resourceType": "azurerm_servicebus_topic_authorization_rule",
-    "prefix": "dnsrec",
+    "abbreviation": "dnsrec",
     "minLength": 1,
     "maxLength": 50,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,48}[a-zA-Z0-9]$",
@@ -2521,7 +2521,7 @@
   },
   {
     "resourceType": "azurerm_powerbi_embedded",
-    "prefix": "pbi",
+    "abbreviation": "pbi",
     "minLength": 3,
     "maxLength": 63,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-]{2,62}$",
@@ -2535,7 +2535,7 @@
   },
   {
     "resourceType": "azurerm_dashboard",
-    "prefix": "dsb",
+    "abbreviation": "dsb",
     "minLength": 3,
     "maxLength": 160,
     "validationRegex": "^[a-zA-Z0-9-]{3,160}$",
@@ -2549,7 +2549,7 @@
   },
   {
     "resourceType": "azurerm_signalr_service",
-    "prefix": "sgnlr",
+    "abbreviation": "sgnlr",
     "minLength": 3,
     "maxLength": 63,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]$",
@@ -2563,7 +2563,7 @@
   },
   {
     "resourceType": "azurerm_eventgrid_domain",
-    "prefix": "egd",
+    "abbreviation": "egd",
     "minLength": 3,
     "maxLength": 50,
     "validationRegex": "^[a-zA-Z0-9-]{3,50}$",
@@ -2577,7 +2577,7 @@
   },
   {
     "resourceType": "azurerm_eventgrid_domain_topic",
-    "prefix": "egdt",
+    "abbreviation": "egdt",
     "minLength": 3,
     "maxLength": 50,
     "validationRegex": "^[a-zA-Z0-9-]{3,50}$",
@@ -2591,7 +2591,7 @@
   },
   {
     "resourceType": "azurerm_eventgrid_event_subscription",
-    "prefix": "egs",
+    "abbreviation": "egs",
     "minLength": 3,
     "maxLength": 64,
     "validationRegex": "^[a-zA-Z0-9-]{3,64}$",
@@ -2605,7 +2605,7 @@
   },
   {
     "resourceType": "azurerm_eventgrid_topic",
-    "prefix": "egt",
+    "abbreviation": "egt",
     "minLength": 3,
     "maxLength": 50,
     "validationRegex": "^[a-zA-Z0-9-]{3,50}$",
@@ -2619,7 +2619,7 @@
   },
   {
     "resourceType": "azurerm_relay_namespace",
-    "prefix": "rln",
+    "abbreviation": "rln",
     "minLength": 6,
     "maxLength": 50,
     "validationRegex": "^[a-zA-Z][a-zA-Z0-9-]{4,48}[a-zA-Z0-9]$",
@@ -2633,7 +2633,7 @@
   },
   {
     "resourceType": "azurerm_relay_hybrid_connection",
-    "prefix": "rlhc",
+    "abbreviation": "rlhc",
     "minLength": 1,
     "maxLength": 260,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,258}[a-zA-Z0-9]$",
@@ -2647,7 +2647,7 @@
   },
   {
     "resourceType": "azurerm_app_service",
-    "prefix": "app",
+    "abbreviation": "app",
     "minLength": 2,
     "maxLength": 60,
     "validationRegex": "^[0-9A-Za-z][0-9A-Za-z-]{0,58}[0-9a-zA-Z]$",
@@ -2661,7 +2661,7 @@
   },
   {
     "resourceType": "azurerm_app_service_plan",
-    "prefix": "plan",
+    "abbreviation": "plan",
     "minLength": 1,
     "maxLength": 40,
     "validationRegex": "^[0-9A-Za-z-]{1,40}$",
@@ -2675,7 +2675,7 @@
   },
   {
     "resourceType": "azurerm_app_service_environment",
-    "prefix": "ase",
+    "abbreviation": "ase",
     "minLength": 2,
     "maxLength": 36,
     "validationRegex": "^[0-9A-Za-z-]{2,36}$",
@@ -2689,7 +2689,7 @@
   },
   {
     "resourceType": "azurerm_application_insights",
-    "prefix": "appi",
+    "abbreviation": "appi",
     "minLength": 1,
     "maxLength": 260,
     "validationRegex": "^[^%&?/. ][^%&?/]{0,258}[^%&?/. ]$",
@@ -2703,7 +2703,7 @@
   },
   {
     "resourceType": "aks_node_pool_linux",
-    "prefix": "npl",
+    "abbreviation": "npl",
     "minLength": 1,
     "maxLength": 12,
     "validationRegex": "^[a-z][0-9a-z]{0,11}$",
@@ -2717,7 +2717,7 @@
   },
   {
     "resourceType": "aks_node_pool_windows",
-    "prefix": "npw",
+    "abbreviation": "npw",
     "minLength": 1,
     "maxLength": 6,
     "validationRegex": "^[a-z][0-9a-z]{0,5}$",
@@ -2731,7 +2731,7 @@
   },
   {
     "resourceType": "azurerm_synapse_workspace",
-    "prefix": "syws",
+    "abbreviation": "syws",
     "minLength": 1,
     "maxLength": 45,
     "validationRegex": "^[0-9a-z]{1,45}$",
@@ -2745,7 +2745,7 @@
   },
   {
     "resourceType": "azurerm_synapse_spark_pool",
-    "prefix": "sysp",
+    "abbreviation": "sysp",
     "minLength": 1,
     "maxLength": 15,
     "validationRegex": "^[0-9a-zA-Z]{1,15}$",
@@ -2759,7 +2759,7 @@
   },
   {
     "resourceType": "azurerm_synapse_sql_pool ",
-    "prefix": "sysql",
+    "abbreviation": "sysql",
     "minLength": 1,
     "maxLength": 15,
     "validationRegex": "^[0-9a-zA-Z]{1,15}$",
@@ -2773,7 +2773,7 @@
   },
   {
     "resourceType": "azurerm_synapse_firewall_rule",
-    "prefix": "syfw",
+    "abbreviation": "syfw",
     "minLength": 1,
     "maxLength": 128,
     "validationRegex": "^[^<>*%:?+/]{1,127}[^<>*%:.?+/]$",
@@ -2787,7 +2787,7 @@
   },
   {
     "resourceType": "azurerm_user_assigned_identity",
-    "prefix": "msi",
+    "abbreviation": "msi",
     "minLength": 3,
     "maxLength": 128,
     "validationRegex": "^[0-9a-zA-Z_-]{3,128}$",
@@ -2801,7 +2801,7 @@
   },
   {
     "resourceType": "azurerm_private_dns_zone_virtual_network_link",
-    "prefix": "pnetlk",
+    "abbreviation": "pnetlk",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -2815,7 +2815,7 @@
   },
   {
     "resourceType": "azurerm_private_endpoint",
-    "prefix": "pe",
+    "abbreviation": "pe",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -2829,7 +2829,7 @@
   },
   {
     "resourceType": "azurerm_private_service_connection",
-    "prefix": "psc",
+    "abbreviation": "psc",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -2843,7 +2843,7 @@
   },
   {
     "resourceType": "azurerm_firewall_ip_configuration",
-    "prefix": "fwipconf",
+    "abbreviation": "fwipconf",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -2857,7 +2857,7 @@
   },
   {
     "resourceType": "azurerm_firewall_application_rule_collection",
-    "prefix": "fwapp",
+    "abbreviation": "fwapp",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -2871,7 +2871,7 @@
   },
   {
     "resourceType": "azurerm_firewall_nat_rule_collection",
-    "prefix": "fwnatrc",
+    "abbreviation": "fwnatrc",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -2885,7 +2885,7 @@
   },
   {
     "resourceType": "azurerm_firewall_network_rule_collection",
-    "prefix": "fwnetrc",
+    "abbreviation": "fwnetrc",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -2899,7 +2899,7 @@
   },
   {
     "resourceType": "azurerm_dns_a_record",
-    "prefix": "dnsrec",
+    "abbreviation": "dnsrec",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -2913,7 +2913,7 @@
   },
   {
     "resourceType": "azurerm_dns_aaaa_record",
-    "prefix": "dnsrec",
+    "abbreviation": "dnsrec",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -2927,7 +2927,7 @@
   },
   {
     "resourceType": "azurerm_dns_caa_record",
-    "prefix": "dnsrec",
+    "abbreviation": "dnsrec",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -2941,7 +2941,7 @@
   },
   {
     "resourceType": "azurerm_dns_cname_record",
-    "prefix": "dnsrec",
+    "abbreviation": "dnsrec",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -2955,7 +2955,7 @@
   },
   {
     "resourceType": "azurerm_dns_mx_record",
-    "prefix": "dnsrec",
+    "abbreviation": "dnsrec",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -2969,7 +2969,7 @@
   },
   {
     "resourceType": "azurerm_dns_ns_record",
-    "prefix": "dnsrec",
+    "abbreviation": "dnsrec",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -2983,7 +2983,7 @@
   },
   {
     "resourceType": "azurerm_dns_ptr_record",
-    "prefix": "dnsrec",
+    "abbreviation": "dnsrec",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -2997,7 +2997,7 @@
   },
   {
     "resourceType": "azurerm_dns_txt_record",
-    "prefix": "dnsrec",
+    "abbreviation": "dnsrec",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -3011,7 +3011,7 @@
   },
   {
     "resourceType": "azurerm_private_dns_a_record",
-    "prefix": "pdnsrec",
+    "abbreviation": "pdnsrec",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -3025,7 +3025,7 @@
   },
   {
     "resourceType": "azurerm_private_dns_aaaa_record",
-    "prefix": "pdnsrec",
+    "abbreviation": "pdnsrec",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -3039,7 +3039,7 @@
   },
   {
     "resourceType": "azurerm_private_dns_cname_record",
-    "prefix": "pdnsrec",
+    "abbreviation": "pdnsrec",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -3053,7 +3053,7 @@
   },
   {
     "resourceType": "azurerm_private_dns_mx_record",
-    "prefix": "pdnsrec",
+    "abbreviation": "pdnsrec",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -3067,7 +3067,7 @@
   },
   {
     "resourceType": "azurerm_private_dns_ptr_record",
-    "prefix": "pdnsrec",
+    "abbreviation": "pdnsrec",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -3081,7 +3081,7 @@
   },
   {
     "resourceType": "azurerm_private_dns_srv_record",
-    "prefix": "pdnsrec",
+    "abbreviation": "pdnsrec",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -3095,7 +3095,7 @@
   },
   {
     "resourceType": "azurerm_private_dns_txt_record",
-    "prefix": "pdnsrec",
+    "abbreviation": "pdnsrec",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -3109,7 +3109,7 @@
   },
   {
     "resourceType": "azurerm_virtual_machine_extension",
-    "prefix": "vmx",
+    "abbreviation": "vmx",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -3123,7 +3123,7 @@
   },
   {
     "resourceType": "azurerm_virtual_machine_scale_set_extension",
-    "prefix": "vmssx",
+    "abbreviation": "vmssx",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -3137,7 +3137,7 @@
   },
   {
     "resourceType": "azurerm_network_ddos_protection_plan",
-    "prefix": "ddospp",
+    "abbreviation": "ddospp",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -3151,7 +3151,7 @@
   },
   {
     "resourceType": "azurerm_private_dns_zone_group",
-    "prefix": "pdnszg",
+    "abbreviation": "pdnszg",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -3165,7 +3165,7 @@
   },
   {
     "resourceType": "azurerm_proximity_placement_group",
-    "prefix": "ppg",
+    "abbreviation": "ppg",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -3179,7 +3179,7 @@
   },
   {
     "resourceType": "azurerm_private_link_service",
-    "prefix": "pls",
+    "abbreviation": "pls",
     "minLength": 1,
     "maxLength": 80,
     "validationRegex": "^[a-zA-Z0-9][a-zA-Z0-9-._]{0,78}[a-zA-Z0-9_]$",
@@ -3193,7 +3193,7 @@
   },
   {
     "resourceType": "databricks_cluster",
-    "prefix": "dbc",
+    "abbreviation": "dbc",
     "minLength": 3,
     "maxLength": 30,
     "validationRegex": "^[a-zA-Z0-9-_]{3,30}$",
@@ -3207,7 +3207,7 @@
   },
   {
     "resourceType": "databricks_standard_cluster",
-    "prefix": "dbsc",
+    "abbreviation": "dbsc",
     "minLength": 3,
     "maxLength": 30,
     "validationRegex": "^[a-zA-Z0-9-_]{3,30}$",
@@ -3221,7 +3221,7 @@
   },
   {
     "resourceType": "databricks_high_concurrency_cluster",
-    "prefix": "dbhcc",
+    "abbreviation": "dbhcc",
     "minLength": 3,
     "maxLength": 30,
     "validationRegex": "^[a-zA-Z0-9-_]{3,30}$",
@@ -3235,7 +3235,7 @@
   },
   {
     "resourceType": "general",
-    "prefix": "",
+    "abbreviation": "",
     "minLength": 1,
     "maxLength": 250,
     "validationRegex": "^[a-zA-Z0-9-_]{1,250}$",
@@ -3249,7 +3249,7 @@
   },
   {
     "resourceType": "general_safe",
-    "prefix": "",
+    "abbreviation": "",
     "minLength": 1,
     "maxLength": 250,
     "validationRegex": "^[a-z]{1,250}$",

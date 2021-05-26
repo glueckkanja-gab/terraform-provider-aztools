@@ -5,36 +5,36 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/glueckkanja-gab/terraform-provider-aztools/internal/provider/common"
+	"github.com/glueckkanja-gab/terraform-provider-aztools/internal/provider/models"
+	"github.com/glueckkanja-gab/terraform-provider-aztools/internal/provider/validate"
 	"github.com/google/uuid"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
-	"github.com/glueckkanja-gab/terraform-provider-aztools/internal/provider/common"
-	"github.com/glueckkanja-gab/terraform-provider-aztools/internal/provider/models"
-	"github.com/glueckkanja-gab/terraform-provider-aztools/internal/provider/validate"
 )
 
 func resourceName() *schema.Resource {
 	return &schema.Resource{
 		CreateContext: resourceNameCreate,
 		ReadContext:   resourceNameRead,
-		//UpdateContext: resourceNameCreateOrUpdate,
+		//UpdateContext: resourceNameUpdate,
 		DeleteContext: resourceNameDelete,
 
 		Schema: map[string]*schema.Schema{
-			"name": &schema.Schema{
+			"name": {
 				Type:         schema.TypeString,
 				Required:     true,
 				ForceNew:     true,
 				ValidateFunc: validation.StringIsNotWhiteSpace,
 			},
-			"resource_type": &schema.Schema{
+			"resource_type": {
 				Type:         schema.TypeString,
 				Required:     true,
 				ForceNew:     true,
 				ValidateFunc: validation.StringIsNotWhiteSpace,
 			},
-			"convention": &schema.Schema{
+			"convention": {
 				Type:     schema.TypeString,
 				Optional: true,
 				ForceNew: true,
@@ -42,12 +42,12 @@ func resourceName() *schema.Resource {
 				ValidateFunc: func(val interface{}, key string) (warns []string, errs []error) {
 					v := val.(string)
 					if !(v == "default" || v == "passthrough") {
-						errs = append(errs, fmt.Errorf("Allowed convention values are 'default' or 'passthrough'"))
+						errs = append(errs, fmt.Errorf("allowed convention values are 'default' or 'passthrough'"))
 					}
 					return
 				},
 			},
-			"prefixes": &schema.Schema{
+			"prefixes": {
 				Type: schema.TypeList,
 				Elem: &schema.Schema{
 					Type:         schema.TypeString,
@@ -56,21 +56,21 @@ func resourceName() *schema.Resource {
 				Optional: true,
 				ForceNew: true,
 			},
-			"environment": &schema.Schema{
+			"environment": {
 				Type:     schema.TypeString,
 				Optional: true,
 				ForceNew: true,
 				//ValidateFunc: validation.NoZeroValues, // FIXME: Add validation
 				Default: nil,
 			},
-			"location": &schema.Schema{
+			"location": {
 				Type:     schema.TypeString,
 				Optional: true,
 				ForceNew: true,
 				//ValidateFunc: validation.NoZeroValues, // FIXME: Add validation
 				Default: nil,
 			},
-			"suffixes": &schema.Schema{
+			"suffixes": {
 				Type: schema.TypeList,
 				Elem: &schema.Schema{
 					Type:         schema.TypeString,
@@ -79,14 +79,14 @@ func resourceName() *schema.Resource {
 				Optional: true,
 				ForceNew: true,
 			},
-			"separator": &schema.Schema{
+			"separator": {
 				Type:     schema.TypeString,
 				Optional: true,
 				ForceNew: true,
 				//ValidateFunc: validation.StringIsNotWhiteSpace,  // FIXME: Add validation
 				Default: nil,
 			},
-			"name_precendence": &schema.Schema{
+			"name_precedence": {
 				Type: schema.TypeList,
 				Elem: &schema.Schema{
 					Type:         schema.TypeString,
@@ -95,7 +95,7 @@ func resourceName() *schema.Resource {
 				Optional: true,
 				ForceNew: true,
 			},
-			"result": &schema.Schema{
+			"result": {
 				Type:     schema.TypeString,
 				Computed: true,
 				ForceNew: true,
@@ -109,7 +109,7 @@ func resourceNameCreate(ctx context.Context, d *schema.ResourceData, meta interf
 	diags := resourceNameRead(ctx, d, meta)
 
 	// If resourceNameRead returned diadnostics error, return
-	if diags.HasError() == true {
+	if diags.HasError() {
 		return diags
 	}
 
@@ -236,13 +236,13 @@ func resourceNameRead(ctx context.Context, d *schema.ResourceData, meta interfac
 		}
 
 		// NamePrecedence default
-		result.ResourceConfiguration.NamePrecedence = []string{"prefix", "prefixes", "name", "environment", "suffixes"}
+		result.ResourceConfiguration.NamePrecedence = []string{"abbreviation", "prefixes", "name", "environment", "suffixes"}
 		// NamePrecedence - If schema contain NamePrecedence values
 		if len(result.NamingSchema.Configuration.NamePrecedence) > 0 {
 			result.ResourceConfiguration.NamePrecedence = result.NamingSchema.Configuration.NamePrecedence
 		}
 		// NamePrecedence - overrrided by resource configuration
-		if i, ok := d.GetOk("name_precendence"); ok {
+		if i, ok := d.GetOk("name_precedence"); ok {
 			result.ResourceConfiguration.NamePrecedence = common.ConvertInterfaceToString(i.([]interface{}))
 		}
 
@@ -269,9 +269,9 @@ func resourceNameRead(ctx context.Context, d *schema.ResourceData, meta interfac
 
 		for i := 0; i < len(result.ResourceConfiguration.NamePrecedence); i++ {
 			switch c := result.ResourceConfiguration.NamePrecedence[i]; c {
-			case "prefix":
-				if len(result.NamingSchema.Prefix) > 0 {
-					calculatedContent = append(calculatedContent, result.NamingSchema.Prefix)
+			case "abbreviation":
+				if len(result.NamingSchema.Abbreviation) > 0 {
+					calculatedContent = append(calculatedContent, result.NamingSchema.Abbreviation)
 				}
 			case "prefixes":
 				if len(result.ResourceConfiguration.Prefixes) > 0 {
@@ -361,15 +361,15 @@ func resourceNameRead(ctx context.Context, d *schema.ResourceData, meta interfac
 	return diags
 }
 
+/*
 func resourceNameUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
 	return resourceNameRead(ctx, d, meta)
 }
+*/
 
 func resourceNameDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
 	// Warning or errors can be collected in a slice type
 	var diags diag.Diagnostics
-
-	// d.SetId("") is automatically called assuming delete returns no errors
 
 	return diags
 }

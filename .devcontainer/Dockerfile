@@ -92,7 +92,7 @@ ENV DEBIAN_FRONTEND=dialog
 # Add terraform
 FROM base
 
-ENV versionTerraform=0.13.5
+ENV versionTerraform=0.15.4
 
 RUN apt-get update \
     && apt-get -y install \

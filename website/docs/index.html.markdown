@@ -3,7 +3,7 @@ layout: "aztools"
 page_title: "Provider: AzTools"
 sidebar_current: "docs-aztools-index"
 description: |-
-  Terraform provider aztools.
+  Terraform provider AzTools.
 ---
 
 # AzTools Provider
@@ -35,8 +35,10 @@ The following arguments are supported:
 * `environment` - (Optional) Environment atribute. Defaults to `sandbox`.
 * `separator` - (Optional) Separator between resource arguments. Defaults to `-`.
 * `lowercase` - (Optional) Convert result to lowercase. Possible values are: `true` or `false`. Defaults to `false`.
-* `schema_naming_path` - (Optional) Relative file path from root module to json schema file. Defaults to `./schema.naming.json`
-* `schema_locations_path` - (Optional) Relative file path from root module to json schema file. Defaults to `./schema.locations.json`
+* `schema_naming_path` - (Optional) Relative file path from root module to json schema file.
+* `schema_locations_path` - (Optional) Relative file path from root module to json schema file.
+* `schema_naming_url` - (Optional) Url of json schema file.
+* `schema_locations_url` - (Optional) Url of json schema file.
 
 
 ~> **Note:** `separator` and `environment` can be overrriden using atributes in aztools_resource_name resource
@@ -47,7 +49,7 @@ The following arguments are supported:
 [
   {
     "resourceType": "azurerm_resource_group",
-    "prefix": "rg",
+    "abbreviation": "rg",
     "minLength": 1,
     "maxLength": 90,
     "validationRegex": "^[a-zA-Z0-9-._()]{0,89}[a-zA-Z0-9-_()]$",
@@ -68,7 +70,7 @@ Result: `rg-prefixes-example-sandbox-suffixes-001`
 [
   {
     "resourceType": "azurerm_resource_group_custom",
-    "prefix": "rg",
+    "abbreviation": "rg",
     "minLength": 1,
     "maxLength": 90,
     "validationRegex": "^[a-zA-Z0-9-._()]{0,89}[a-zA-Z0-9-_()]$",
@@ -77,7 +79,7 @@ Result: `rg-prefixes-example-sandbox-suffixes-001`
       "useLowerCase": false,
       "useSeparator": true,
       "denyDoubleHyphens": true,
-      "namePrecedence": ["prefixes", "name", "location", "environment", "suffixes", "prefix"]
+      "namePrecedence": ["prefixes", "name", "location", "environment", "suffixes", "abbreviation"]
     }
   }
 ]

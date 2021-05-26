@@ -1,28 +1,28 @@
-resource "aztools_resource_name" "example_default_precendence" {
-  resource_type    = "azurerm_resource_group"
-  name             = "example"
-  prefixes         = ["myprefix"]
-  suffixes         = ["mysuffix", "001"]
-  name_precendence = ["prefix", "prefixes", "name", "environment", "suffixes"]
+resource "aztools_resource_name" "example_default_precedence" {
+  resource_type   = "azurerm_resource_group"
+  name            = "example"
+  prefixes        = ["myprefix"]
+  suffixes        = ["mysuffix", "001"]
+  name_precedence = ["abbreviation", "prefixes", "name", "environment", "suffixes"]
 }
 
-output "example_default_precendence" {
-  value = aztools_resource_name.example_default_precendence.result
+output "example_default_precedence" {
+  value = aztools_resource_name.example_default_precedence.result
 }
 
 //----------------
 
-resource "aztools_resource_name" "example_custom_precendence" {
-  name             = "example"
-  resource_type    = "azurerm_resource_group"
-  location         = "westeurope"
-  prefixes         = ["prefixes"]
-  suffixes         = ["suffixes", "002"]
-  name_precendence = ["prefixes", "name", "location", "environment", "suffixes", "prefix"]
+resource "aztools_resource_name" "example_custom_precedence" {
+  name            = "example"
+  resource_type   = "azurerm_resource_group"
+  location        = "westeurope"
+  prefixes        = ["prefixes"]
+  suffixes        = ["suffixes", "002"]
+  name_precedence = ["prefixes", "name", "location", "environment", "suffixes", "abbreviation"]
 }
 
-output "example_custom_precendence" {
-  value = aztools_resource_name.example_custom_precendence.result
+output "example_custom_precedence" {
+  value = aztools_resource_name.example_custom_precedence.result
 }
 
 //----------------

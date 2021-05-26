@@ -86,7 +86,7 @@ func resourceName() *schema.Resource {
 				//ValidateFunc: validation.StringIsNotWhiteSpace,  // FIXME: Add validation
 				Default: nil,
 			},
-			"name_precendence": {
+			"name_precedence": {
 				Type: schema.TypeList,
 				Elem: &schema.Schema{
 					Type:         schema.TypeString,
@@ -236,13 +236,13 @@ func resourceNameRead(ctx context.Context, d *schema.ResourceData, meta interfac
 		}
 
 		// NamePrecedence default
-		result.ResourceConfiguration.NamePrecedence = []string{"prefix", "prefixes", "name", "environment", "suffixes"}
+		result.ResourceConfiguration.NamePrecedence = []string{"abbreviation", "prefixes", "name", "environment", "suffixes"}
 		// NamePrecedence - If schema contain NamePrecedence values
 		if len(result.NamingSchema.Configuration.NamePrecedence) > 0 {
 			result.ResourceConfiguration.NamePrecedence = result.NamingSchema.Configuration.NamePrecedence
 		}
 		// NamePrecedence - overrrided by resource configuration
-		if i, ok := d.GetOk("name_precendence"); ok {
+		if i, ok := d.GetOk("name_precedence"); ok {
 			result.ResourceConfiguration.NamePrecedence = common.ConvertInterfaceToString(i.([]interface{}))
 		}
 
@@ -269,9 +269,9 @@ func resourceNameRead(ctx context.Context, d *schema.ResourceData, meta interfac
 
 		for i := 0; i < len(result.ResourceConfiguration.NamePrecedence); i++ {
 			switch c := result.ResourceConfiguration.NamePrecedence[i]; c {
-			case "prefix":
-				if len(result.NamingSchema.Prefix) > 0 {
-					calculatedContent = append(calculatedContent, result.NamingSchema.Prefix)
+			case "abbreviation":
+				if len(result.NamingSchema.Abbreviation) > 0 {
+					calculatedContent = append(calculatedContent, result.NamingSchema.Abbreviation)
 				}
 			case "prefixes":
 				if len(result.ResourceConfiguration.Prefixes) > 0 {

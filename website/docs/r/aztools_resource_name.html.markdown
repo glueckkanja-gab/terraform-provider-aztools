@@ -21,7 +21,7 @@ resource "aztools_resource_name" "example" {
   separator = "-"
   prefixes = ["example"]
   suffixes = ["001"]
-  name_precendence = ["prefix", "prefixes", "name", "environment", "suffixes"]
+  name_precedence = ["prefix", "prefixes", "name", "environment", "suffixes"]
 }
 ```
 
@@ -36,5 +36,5 @@ The following arguments are supported:
 * `location` - (Optional) Location convert values from json map file
 * `prefixes` - (Optional) A list of prefixes. Defaults to `[]`.
 * `suffixes` - (Optional) A list of suffixes. Defaults to `[]`.
-* `atribute_precendence` - (Optional) A list of atribute precedence. Defaults to `["prefix", "prefixes", "name", "location", "environment", "suffixes"]`.
+* `atribute_precedence` - (Optional) A list of atribute precedence. Defaults to `["prefix", "prefixes", "name", "location", "environment", "suffixes"]`.
 

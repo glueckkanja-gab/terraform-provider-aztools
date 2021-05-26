@@ -6,7 +6,7 @@ type LocationsMapSchema map[string]string
 // NamingSchema -
 type NamingSchema struct {
 	ResourceType    string              `json:"resourceType"`
-	Prefix          string              `json:"prefix"`
+	Abbreviation    string              `json:"abbreviation"`
 	MinLength       int                 `json:"minLength"`
 	MaxLength       int                 `json:"maxLength"`
 	ValidationRegex string              `json:"validationRegex"`

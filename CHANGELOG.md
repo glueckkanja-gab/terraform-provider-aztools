@@ -1,3 +1,9 @@
+## 0.0.6
+
+ENHANCEMENTS:
+
+* Added 'hash_length' to provider and resource configuration and 'hashLength' parameter to resource json schema for generating specific length of hash for globaly unique names.
+
 ## 0.0.5
 
 FEATURES:

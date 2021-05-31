@@ -74,7 +74,7 @@ func resourceName() *schema.Resource {
 				Type:         schema.TypeInt,
 				Optional:     true,
 				ForceNew:     true,
-				ValidateFunc: validation.IntBetween(0, 999999999999999),
+				ValidateFunc: validation.IntBetween(0, 9999),
 				Default:      0,
 			},
 			"suffixes": {

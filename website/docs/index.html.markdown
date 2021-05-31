@@ -18,13 +18,30 @@ Use the navigation to the left to read about the available resources.
 
 ## Example Usage
 
+File path
+
 ```hcl
 provider "aztools" {
-  environment = "sandbox"
-  separator = "-"
-  lowercase = false
-  schema_naming_path = "./schema.naming.json"
-  schema_locations_path = "./schema.locations.json"
+  environment           = "dev"
+  separator             = "-"
+  convention            = "default"
+  lowercase             = true
+  hash_length           = 2
+  schema_naming_path    = "./naming_schema/schema.naming.json"
+  schema_locations_path = "./naming_schema/schema.locations.json"
+}
+```
+Url location
+
+```hcl
+provider "aztools" {
+  environment          = "dev"
+  separator            = "-"
+  convention           = "default"
+  lowercase            = true
+  hash_length          = 2
+  schema_naming_url    = "https://raw.githubusercontent.com/glueckkanja-gab/terraform-provider-aztools/main/examples/naming_schema/schema.naming.json"
+  schema_locations_url = "https://raw.githubusercontent.com/glueckkanja-gab/terraform-provider-aztools/main/examples/naming_schema/schema.locations.json"
 }
 ```
 
@@ -35,13 +52,16 @@ The following arguments are supported:
 * `environment` - (Optional) Environment atribute. Defaults to `sandbox`.
 * `separator` - (Optional) Separator between resource arguments. Defaults to `-`.
 * `lowercase` - (Optional) Convert result to lowercase. Possible values are: `true` or `false`. Defaults to `false`.
+* `hash_length` - (Optional) Length of random hash. Ovveride all json schema definitions.
 * `schema_naming_path` - (Optional) Relative file path from root module to json schema file.
 * `schema_locations_path` - (Optional) Relative file path from root module to json schema file.
 * `schema_naming_url` - (Optional) Url of json schema file.
 * `schema_locations_url` - (Optional) Url of json schema file.
 
 
-~> **Note:** `separator` and `environment` can be overrriden using atributes in aztools_resource_name resource
+~> **Note:** Parameters defined on resource level will override provider configuration.
+~> **Note:** One of `schema_naming_path` or `schema_naming_url` must be specified.
+~> **Note:** One of `schema_locations_path` or `schema_locations_url` must be specified.
 
 ## Example schema.naming.json
 
@@ -58,13 +78,14 @@ The following arguments are supported:
       "useLowerCase": false,
       "useSeparator": true,
       "denyDoubleHyphens": true,
-      "namePrecedence": []
+      "namePrecedence": [],
+      "hashLength": 4
     }
   }
 ]
 ```
 
-Result: `rg-prefixes-example-sandbox-suffixes-001`
+Result: `rg-prefixes-example-sandbox-suffixes-abcd-001`
 
 ```json
 [
@@ -79,13 +100,14 @@ Result: `rg-prefixes-example-sandbox-suffixes-001`
       "useLowerCase": false,
       "useSeparator": true,
       "denyDoubleHyphens": true,
-      "namePrecedence": ["prefixes", "name", "location", "environment", "suffixes", "abbreviation"]
+      "namePrecedence": ["prefixes", "name", "location", "environment", "hash", "suffixes", "abbreviation"],
+      "hashLength": 4
     }
   }
 ]
 ```
 
-Result: `prefixes-example-weeu-sandbox-suffixes-001-rg`
+Result: `prefixes-example-weeu-sandbox-abcd-suffixes-001-rg`
 
 ## Example schema.locations.json
 

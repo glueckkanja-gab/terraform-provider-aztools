@@ -1,28 +1,28 @@
-resource "aztools_resource_name" "example_default_precedence" {
-  resource_type   = "azurerm_resource_group"
-  name            = "example"
-  prefixes        = ["myprefix"]
-  suffixes        = ["mysuffix", "001"]
-  name_precedence = ["abbreviation", "prefixes", "name", "environment", "suffixes"]
+resource "aztools_resource_name" "example_precedence_default" {
+  resource_type = "azurerm_resource_group"
+  name          = "example"
+  location      = "westeurope"
+  prefixes      = ["myprefix"]
+  suffixes      = ["mysuffix", "001"]
 }
 
-output "example_default_precedence" {
-  value = aztools_resource_name.example_default_precedence.result
+output "example_precedence_default" {
+  value = aztools_resource_name.example_precedence_default.result
 }
 
 //----------------
 
-resource "aztools_resource_name" "example_custom_precedence" {
+resource "aztools_resource_name" "example_precedence_custom" {
   name            = "example"
   resource_type   = "azurerm_resource_group"
   location        = "westeurope"
-  prefixes        = ["prefixes"]
-  suffixes        = ["suffixes", "002"]
-  name_precedence = ["prefixes", "name", "location", "environment", "suffixes", "abbreviation"]
+  prefixes        = ["myprefix"]
+  suffixes        = ["mysuffix", "001"]
+  name_precedence = ["prefixes", "name", "environment", "suffixes", "abbreviation"]
 }
 
-output "example_custom_precedence" {
-  value = aztools_resource_name.example_custom_precedence.result
+output "example_precedence_custom" {
+  value = aztools_resource_name.example_precedence_custom.result
 }
 
 //----------------
@@ -35,4 +35,29 @@ resource "aztools_resource_name" "passthrough" {
 
 output "example_passthrough" {
   value = aztools_resource_name.passthrough.result
+}
+
+//-----------------
+
+resource "aztools_resource_name" "example_hash_default" {
+  name          = "example"
+  resource_type = "azurerm_key_vault"
+  suffixes      = ["001", ]
+}
+
+output "example_hash_default" {
+  value = aztools_resource_name.example_hash_default.result
+}
+
+//-----------------
+
+resource "aztools_resource_name" "example_hash_custom" {
+  name          = "example"
+  resource_type = "azurerm_key_vault"
+  hash_length   = 5
+  suffixes      = ["001", ]
+}
+
+output "example_hash_custom" {
+  value = aztools_resource_name.example_hash_custom.result
 }

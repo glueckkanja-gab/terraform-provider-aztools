@@ -8,6 +8,7 @@ type ProviderConfiguration struct {
 	Environment     string
 	Separator       string
 	Lowercase       bool
+	HashLength      int
 	ForceRefresh    bool
 	NamingSchemaMap map[string]NamingSchema
 	LocationsMap    LocationsMapSchema

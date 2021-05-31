@@ -1368,7 +1368,8 @@
       "useLowerCase": false,
       "useSeparator": true,
       "denyDoubleHyphens": true,
-      "namePrecedence": []
+      "namePrecedence": [],
+      "hashLength": 4
     }
   },
   {
@@ -2274,7 +2275,7 @@
     "maxLength": 90,
     "validationRegex": "^[a-zA-Z0-9-._()]{0,89}[a-zA-Z0-9-_()]$",
     "configuration": {
-      "useEnvironment": false,
+      "useEnvironment": true,
       "useLowerCase": false,
       "useSeparator": true,
       "denyDoubleHyphens": false,

@@ -21,7 +21,8 @@ resource "aztools_resource_name" "example" {
   separator = "-"
   prefixes = ["example"]
   suffixes = ["001"]
-  name_precedence = ["prefix", "prefixes", "name", "environment", "suffixes"]
+  hash_lenght = 4
+  name_precedence = ["abbreviation", "prefixes", "name", "location", "environment", "hash", "suffixes"]
 }
 ```
 
@@ -31,10 +32,17 @@ The following arguments are supported:
 
 * `resource_type` - (Required) Resource Type defined in namingSchema.default.json
 * `name` - (Required) Resource name
+* `convention` - (Optional) Convention used for calculation. Allowed convention values are 'default' or 'passthrough'.
 * `environment` - (Optional) Environment atribute
 * `separator` - (Optional) Separator for resource arguments.
 * `location` - (Optional) Location convert values from json map file
 * `prefixes` - (Optional) A list of prefixes. Defaults to `[]`.
 * `suffixes` - (Optional) A list of suffixes. Defaults to `[]`.
-* `atribute_precedence` - (Optional) A list of atribute precedence. Defaults to `["prefix", "prefixes", "name", "location", "environment", "suffixes"]`.
+* `hash_lenght` - (Optional) Length of hash. Default 0.
+* `atribute_precedence` - (Optional) A list of atribute precedence. Defaults to `["abbreviation", "prefixes", "name", "location", "environment", "hash", "suffixes"]`.
 
+## Attributes Reference
+
+The following arguments are exported:
+
+* `result` - Naming convention result.

@@ -25,7 +25,7 @@ func AzTools(version string) func() *schema.Provider {
 					Type:        schema.TypeString,
 					Optional:    true,
 					DefaultFunc: schema.EnvDefaultFunc("AZF_NAMING_CONVENTION", "default"),
-					Description: "",
+					Description: "Default convention for all naming results. Possible values 'default', 'passthrough'. Default 'default'",
 					ValidateFunc: func(val interface{}, key string) (warns []string, errs []error) {
 						v := val.(string)
 						if !(v == "default" || v == "passthrough") {
@@ -38,19 +38,25 @@ func AzTools(version string) func() *schema.Provider {
 					Type:        schema.TypeString,
 					Optional:    true,
 					DefaultFunc: schema.EnvDefaultFunc("AZF_NAMING_ENVIRONMENT", "sandbox"),
-					Description: "",
+					Description: "Environment parameter. Default 'sandbox'",
 				},
 				"separator": {
 					Type:        schema.TypeString,
 					Optional:    true,
 					DefaultFunc: schema.EnvDefaultFunc("AZF_NAMING_SEPARATOR", "-"),
-					Description: "",
+					Description: "Naming schema separator. Default '-'",
+				},
+				"hash_length": {
+					Type:        schema.TypeInt,
+					Optional:    true,
+					DefaultFunc: schema.EnvDefaultFunc("AZF_HASH_LENGTH", nil),
+					Description: "Default hash length for resource schema. Overrrides all naminng schema configurations defined in json files.",
 				},
 				"lowercase": {
 					Type:        schema.TypeBool,
 					Optional:    true,
 					DefaultFunc: schema.EnvDefaultFunc("AZF_NAMING_LOWERCASE", false),
-					Description: "",
+					Description: "Namig result formating. Default 'false'",
 				},
 				"schema_naming_path": {
 					Type:          schema.TypeString,
@@ -122,6 +128,10 @@ func configure(version string, p *schema.Provider) func(context.Context, *schema
 		}
 		if i, ok := d.GetOk("lowercase"); ok {
 			providerConfig.Lowercase = i.(bool)
+		}
+
+		if i, ok := d.GetOk("hash_length"); ok {
+			providerConfig.HashLength = i.(int)
 		}
 
 		// load & parse naming schemas

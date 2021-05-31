@@ -20,4 +20,5 @@ type ConfigurationSchema struct {
 	UseSeparator      bool     `json:"useSeparator"`
 	DenyDoubleHyphens bool     `json:"denyDoubleHyphens"`
 	NamePrecedence    []string `json:"namePrecedence"`
+	HashLength        int      `json:"hashLength"`
 }

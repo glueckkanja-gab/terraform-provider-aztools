@@ -10,6 +10,7 @@ import (
 	"github.com/glueckkanja-gab/terraform-provider-aztools/internal/provider/validate"
 	"github.com/google/uuid"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/customdiff"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
 )
@@ -18,7 +19,7 @@ func resourceName() *schema.Resource {
 	return &schema.Resource{
 		CreateContext: resourceNameCreate,
 		ReadContext:   resourceNameRead,
-		//UpdateContext: resourceNameUpdate,
+		// UpdateContext: All fields are ForceNew or Computed w/out Optional, Update is superfluous
 		DeleteContext: resourceNameDelete,
 
 		Schema: map[string]*schema.Schema{
@@ -38,7 +39,6 @@ func resourceName() *schema.Resource {
 				Type:     schema.TypeString,
 				Optional: true,
 				ForceNew: true,
-				//ValidateFunc: validation.StringIsNotWhiteSpace,
 				ValidateFunc: func(val interface{}, key string) (warns []string, errs []error) {
 					v := val.(string)
 					if !(v == "default" || v == "passthrough") {
@@ -60,7 +60,7 @@ func resourceName() *schema.Resource {
 				Type:     schema.TypeString,
 				Optional: true,
 				ForceNew: true,
-				//ValidateFunc: validation.NoZeroValues, // FIXME: Add validation
+				// ValidateFunc: validation.StringDoesNotContainAny(), // FIXME: Add validation
 				Default: nil,
 			},
 			"location": {
@@ -69,6 +69,13 @@ func resourceName() *schema.Resource {
 				ForceNew: true,
 				//ValidateFunc: validation.NoZeroValues, // FIXME: Add validation
 				Default: nil,
+			},
+			"hash_length": {
+				Type:         schema.TypeInt,
+				Optional:     true,
+				ForceNew:     true,
+				ValidateFunc: validation.IntBetween(0, 999999999999999),
+				Default:      0,
 			},
 			"suffixes": {
 				Type: schema.TypeList,
@@ -101,8 +108,23 @@ func resourceName() *schema.Resource {
 				ForceNew: true,
 			},
 		},
+		CustomizeDiff: customdiff.All(
+			customdiff.ForceNewIfChange("hash_length", func(_ context.Context, old, new, _ interface{}) bool {
+				// "size" can only increase in-place, so we must create a new resource
+				// if it is decreased.
+				return new.(int) != old.(int)
+			}),
+		),
 	}
 }
+
+/*
+func valHash(old, new, meta interface{}) bool {
+	// "size" can only increase in-place, so we must create a new resource
+	// if it is decreased.
+	return new.(int) < old.(int)
+}
+*/
 
 func resourceNameCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
 
@@ -114,6 +136,13 @@ func resourceNameCreate(ctx context.Context, d *schema.ResourceData, meta interf
 	}
 
 	d.SetId(uuid.New().String())
+
+	return diags
+}
+
+func resourceNameDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
+	// Warning or errors can be collected in a slice type
+	var diags diag.Diagnostics
 
 	return diags
 }
@@ -137,6 +166,7 @@ func resourceNameRead(ctx context.Context, d *schema.ResourceData, meta interfac
 			Convention     string
 			Environment    string
 			Location       string
+			HashLength     int
 			Prefixes       []string
 			Suffixes       []string
 			Separator      string
@@ -204,7 +234,12 @@ func resourceNameRead(ctx context.Context, d *schema.ResourceData, meta interfac
 			}
 		}
 
-		// Location - overrrided by resource configuration
+		//----------------------------------------------------------------------------------------------------
+		// location
+
+		// priority selection
+		// 1 - resource
+
 		if i, ok := d.GetOk("location"); ok {
 			if i != nil {
 				if v, ok := providerConfig.LocationsMap[i.(string)]; ok {
@@ -222,21 +257,34 @@ func resourceNameRead(ctx context.Context, d *schema.ResourceData, meta interfac
 			}
 		}
 
-		// Separator - if 'UseSeparator' enabled
+		//----------------------------------------------------------------------------------------------------
+		// separator
+
+		// priority selection
+		// 1 - resource
+		// 2 - provider configuration or default
+
 		if result.NamingSchema.Configuration.UseSeparator {
 			result.ResourceConfiguration.Separator = providerConfig.Separator
-		} else {
-			result.ResourceConfiguration.Separator = ""
 		}
-		// Environment - overrrided by resource configuration
 		if i, ok := d.GetOk("separator"); ok {
 			if i != nil {
 				result.ResourceConfiguration.Separator = i.(string)
 			}
 		}
 
-		// NamePrecedence default
-		result.ResourceConfiguration.NamePrecedence = []string{"abbreviation", "prefixes", "name", "environment", "suffixes"}
+		//----------------------------------------------------------------------------------------------------
+		// name precedence
+
+		// TODO: implement provider configuration
+
+		// priority selection
+		// 1 - resource
+		// 2 - provider configuration - NOT YET IMPLEMENTED
+		// 2 - json schema
+		// 3 - default
+
+		result.ResourceConfiguration.NamePrecedence = []string{"abbreviation", "prefixes", "name", "location", "environment", "hash", "suffixes"}
 		// NamePrecedence - If schema contain NamePrecedence values
 		if len(result.NamingSchema.Configuration.NamePrecedence) > 0 {
 			result.ResourceConfiguration.NamePrecedence = result.NamingSchema.Configuration.NamePrecedence
@@ -246,7 +294,14 @@ func resourceNameRead(ctx context.Context, d *schema.ResourceData, meta interfac
 			result.ResourceConfiguration.NamePrecedence = common.ConvertInterfaceToString(i.([]interface{}))
 		}
 
+		//----------------------------------------------------------------------------------------------------
+		// preffixes and suffixes
+
 		// TODO: Add error handling
+
+		// priority selection
+		// 1 - resource
+
 		// Prefixes
 		if i, ok := d.GetOk("prefixes"); ok {
 			result.ResourceConfiguration.Prefixes = common.ConvertInterfaceToString(i.([]interface{}))
@@ -257,10 +312,33 @@ func resourceNameRead(ctx context.Context, d *schema.ResourceData, meta interfac
 		}
 
 		//----------------------------------------------------------------------------------------------------
-		// Compute randomSuffix
+		// Compute random hash
 
-		// TODO: Add 'randomSuffix'
-		//randomSuffix := randSeq(int(randomLength), &randomSeed)
+		// priority selection
+		// 1 - resource
+		// 2 - provider configuration
+		// 3 - json schema
+
+		// if 'hash_length' parameter defined on resource
+		if i, ok := d.GetOk("hash_length"); ok {
+			result.ResourceConfiguration.HashLength = i.(int)
+		} else {
+			// if 'hash_length' parameter defined in provide configuration
+			if providerConfig.HashLength != 0 {
+				result.ResourceConfiguration.HashLength = providerConfig.HashLength
+			} else {
+				// if 'hashLength' parameter defined in json schema
+				if result.NamingSchema.Configuration.HashLength != 0 {
+					result.ResourceConfiguration.HashLength = result.NamingSchema.Configuration.HashLength
+				} else {
+					// If none above
+					result.ResourceConfiguration.HashLength = 0
+				}
+			}
+		}
+
+		randomSeed := int64(result.ResourceConfiguration.HashLength)
+		randomHash := common.RandomSeq(result.ResourceConfiguration.HashLength, &randomSeed)
 
 		//----------------------------------------------------------------------------------------------------
 		// Compute resourceNameResult
@@ -294,6 +372,10 @@ func resourceNameRead(ctx context.Context, d *schema.ResourceData, meta interfac
 			case "location":
 				if len(result.ResourceConfiguration.Location) > 0 {
 					calculatedContent = append(calculatedContent, result.ResourceConfiguration.Location)
+				}
+			case "hash":
+				if result.ResourceConfiguration.HashLength > 0 {
+					calculatedContent = append(calculatedContent, randomHash)
 				}
 			case "suffixes":
 				if len(result.ResourceConfiguration.Suffixes) > 0 {
@@ -340,9 +422,9 @@ func resourceNameRead(ctx context.Context, d *schema.ResourceData, meta interfac
 	}
 
 	//// Validate resourceName against regex
-	//if value, ok := d.Get("resource_type").(string); ok {
-	//	result.ResourceConfiguration.ResourceType = value
-	//}
+	if value, ok := d.Get("resource_type").(string); ok {
+		result.ResourceConfiguration.ResourceType = value
+	}
 
 	//----------------------------------------------------------------------------------------------------
 	// Set result
@@ -357,19 +439,6 @@ func resourceNameRead(ctx context.Context, d *schema.ResourceData, meta interfac
 		})
 		return diags
 	}
-
-	return diags
-}
-
-/*
-func resourceNameUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
-	return resourceNameRead(ctx, d, meta)
-}
-*/
-
-func resourceNameDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
-	// Warning or errors can be collected in a slice type
-	var diags diag.Diagnostics
 
 	return diags
 }

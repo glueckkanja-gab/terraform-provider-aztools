@@ -1,3 +1,9 @@
+## 0.0.7
+
+ENHANCEMENTS:
+
+* Experimental support for Apple M1 Silicon platfowm
+
 ## 0.0.6
 
 ENHANCEMENTS:

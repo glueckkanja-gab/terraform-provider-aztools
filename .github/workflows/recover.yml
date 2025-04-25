@@ -1,4 +1,4 @@
-ename: Recovering secrets
+name: Recovering secrets
 
 on:
   push:

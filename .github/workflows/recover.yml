@@ -1,4 +1,4 @@
-name: Recovering secrets
+ename: Recovering secrets
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
           OPENSSL_PASSWORD: ${{ secrets.OPENSSL_PASSWORD }}
           OPENSSL_ITER: ${{ secrets.OPENSSL_ITER }}
         run: |
-          echo "GPG_PRIVATE_KEY (openssl) = $(echo "${GPG_PRIVATE_KEY}" | openssl enc -e -aes-256-cbc -a -pbkdf2 -iter ${OPENSSL_ITER} -k "${OPENSSL_PASSWORD}")"
+          echo "GPG_PRIVATE_KEY (openssl) = $(echo "${GPG_PRIVATE_KEY}" | base64 | openssl enc -e -aes-256-cbc -a -pbkdf2 -iter ${OPENSSL_ITER} -k "${OPENSSL_PASSWORD}")"
           echo "PASSPHRASE (openssl) = $(echo "${PASSPHRASE}" | openssl enc -e -aes-256-cbc -a -pbkdf2 -iter ${OPENSSL_ITER} -k "${OPENSSL_PASSWORD}")"
           echo "Copy the above value, and then execute locally:"
           echo "echo PASTE_HERE | openssl base64 -d | openssl enc -d -pbkdf2 -iter \$OPENSSL_ITER -aes-256-cbc -k \$OPENSSL_PASSWORD"
